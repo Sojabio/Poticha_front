@@ -1,0 +1,68 @@
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { useAtom } from 'jotai';
+import { userAtom } from './stores/userAtom';
+import { useEffect } from 'react';
+import Cookies from 'js-cookie';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import NavBar from './components/Navbar'
+
+
+//static pages
+import Home from './pages/statics/Home'
+import Abo from './pages/statics/Abo';
+import Call from './pages/statics/Call';
+import Faq from './pages/statics/Faq';
+import Contact from './pages/statics/Contact';
+
+//dynamic pages
+import Books from './pages/dynamics/Books';
+import Authors from './pages/dynamics/Authors';
+
+//admin
+import Login from './pages/Admin/Auth/Login';
+import LoginSuccess from './pages/Admin/Auth/LoginSuccess';
+import LogoutSuccess from './pages/Admin/Auth/LogoutSuccess';
+
+function App() {
+  const [user] = useAtom(userAtom);
+  const [, setUser] = useAtom(userAtom);
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+    const id = Cookies.get('id');
+
+    if (token) {
+      setUser({
+        id: id,
+        isLoggedIn: true,
+        token: token,
+      });
+    }
+  }, []);
+
+
+  return (
+    <>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/abonnement" element={<Abo/>} />
+          <Route path="/appel" element={<Call/>} />
+          <Route path="/faq" element={<Faq/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/ouvrages" element={<Books/>} />
+          <Route path="/auteurices" element={<Authors/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/loginsuccess" element={<LoginSuccess/>} />
+          <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
+        </Routes>
+      </Router>
+    </>
+  )
+}
+
+export default App
