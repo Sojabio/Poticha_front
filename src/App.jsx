@@ -20,6 +20,7 @@ import Contact from './pages/statics/Contact';
 //dynamic pages
 import Books from './pages/dynamics/Books';
 import Authors from './pages/dynamics/Authors';
+import Author from './pages/dynamics/Author';
 
 //admin
 import Login from './pages/Admin/Auth/Login';
@@ -56,6 +57,7 @@ function App() {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/ouvrages" element={<Books/>} />
           <Route path="/auteurices" element={<Authors/>} />
+          <Route path="/auteurices/:id" element={<Author/>}/>
           <Route path="/login" element={<Login/>} />
           <Route path="/loginsuccess" element={<LoginSuccess/>} />
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />

@@ -13,10 +13,10 @@ function LogoutButton() {
       isLoggedIn: false,
       token: '',
     });
-
+    navigate('/')
     Cookies.remove('token');
     Cookies.remove('id');
-    navigate('/logoutsuccess')
+
   };
 
   return (
