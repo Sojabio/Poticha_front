@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 
 const Author = () => {
@@ -29,9 +29,13 @@ const Author = () => {
           <p>Email: {author.email}</p>
           <div>
             Ouvrages publiés chez LePôticha :
-            {books.map((book) => (
-              <p key={book.id}>{book.title}</p>
-            ))}
+            <ul>
+              {books.map((book) => (
+                <li key={book.id}>
+                  <Link to={`/ouvrages/${book.id}`}>{book.title}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
     </div>

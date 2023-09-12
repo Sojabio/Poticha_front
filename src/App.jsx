@@ -17,10 +17,14 @@ import Call from './pages/statics/Call';
 import Faq from './pages/statics/Faq';
 import Contact from './pages/statics/Contact';
 
+
 //dynamic pages
 import Books from './pages/dynamics/Books';
+import Book from './pages/dynamics/Book';
 import Authors from './pages/dynamics/Authors';
 import Author from './pages/dynamics/Author';
+import Infos from './pages/dynamics/Infos';
+import Info from './pages/dynamics/Info';
 
 //admin
 import Login from './pages/Admin/Auth/Login';
@@ -56,6 +60,9 @@ function App() {
           <Route path="/faq" element={<Faq/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/ouvrages" element={<Books/>} />
+          <Route path="/ouvrages/:id" element={<Book/>} />
+          <Route path="/actus" element={<Infos/>} />
+          <Route path="/actus/:id" element={<Info/>} />
           <Route path="/auteurices" element={<Authors/>} />
           <Route path="/auteurices/:id" element={<Author/>}/>
           <Route path="/login" element={<Login/>} />

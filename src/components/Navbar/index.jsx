@@ -20,15 +20,17 @@ const NavBar = () => {
               <NavDropdown.Item as={Link} to="/appel">
                 L'appel à textes
               </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/actus">Notre actualité</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/ouvrages">Les ouvrages</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/auteurices">Les auteurices</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/faq">F.A.Q</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/contact">Nous contacter</NavDropdown.Item>
               <NavDropdown.Divider />
               {userInfo.isLoggedIn ? (
-              <NavDropdown.Item as={Link} to="/login">
-                <LogoutButton />
-              </NavDropdown.Item>
+                <>
+                  <NavDropdown.Item as={Link} to="/login">Espace admin</NavDropdown.Item>
+                  <NavDropdown.Item><LogoutButton /></NavDropdown.Item>
+                </>
               ) : (
               <NavDropdown.Item as={Link} to="/login">
                 Espace admin

@@ -13,7 +13,7 @@ function LogoutButton() {
       isLoggedIn: false,
       token: '',
     });
-    navigate('/')
+    navigate('/logoutsuccess')
     Cookies.remove('token');
     Cookies.remove('id');
 
