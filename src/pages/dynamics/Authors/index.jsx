@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const Authors = () => {
   const [authors, setAuthors] = useState([]);
+  const [authorBooks, setAuthorBooks] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +18,32 @@ const Authors = () => {
         if (response.ok) {
           const jsonData = await response.json();
           setAuthors(jsonData);
+
+          jsonData.forEach(async (author) => {
+            try {
+              const booksResponse = await fetch(
+                `${API_URL}/books?author_id=${author.id}`,
+                {
+                  method: "get",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+              if (booksResponse.ok) {
+                const booksData = await booksResponse.json();
+                console.log(booksData)
+                const updatedAuthorBooks = { ...authorBooks }
+                updatedAuthorBooks[author.id] = booksData;
+                setAuthorBooks(updatedAuthorBooks);
+
+              } else {
+                throw new Error("Erreur lors de la requête des livres");
+              }
+            } catch (error) {
+              console.error("Erreur de requête des livres : ", error);
+            }
+          });
         } else {
           throw new Error("Erreur lors de la requête");
         }
@@ -34,7 +61,11 @@ const Authors = () => {
           {author.image ? (
             <img src={author.image} alt={author.first_name} />
           ) : (
-            <img src="/react.svg" alt={author.first_name} className="DefaultThumbnails" />
+            <img
+              src="/react.svg"
+              alt={author.first_name}
+              className="DefaultThumbnails"
+            />
           )}
           <div>
             <h4>
@@ -42,11 +73,19 @@ const Authors = () => {
             </h4>
             <p>biographie : {author.biography}</p>
             <p>email : {author.email}</p>
-              <Link to={`/auteurices/${author.id}`}>
-                en savoir plus
-              </Link>
+            <Link to={`/auteurices/${author.id}`}>en savoir plus</Link>
           </div>
-          <p>********************</p>
+          {authorBooks[author.id] && (
+            <div>
+              <p>Ouvrages parus chez Le Pôticha:</p>
+              <ul>
+                {authorBooks[author.id].map((book) => (
+                  <li key={book.id}>{book.title}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+            <p>********************</p>
         </div>
       ))}
     </div>
