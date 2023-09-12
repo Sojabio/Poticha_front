@@ -44,6 +44,7 @@ function CreatePost() {
 
       if (response.ok) {
         console.log('Le post a été ajouté avec succès');
+        navigate("/actus")
       } else {
         console.error("Erreur lors de l'ajout du post");
       }
@@ -54,7 +55,6 @@ function CreatePost() {
 
   return (
     <div>
-      <h2>Ajoutez un nouveau post</h2>
       <form  encType="multipart/form-data" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Titre :</label>

@@ -1,4 +1,5 @@
-import CreatePost from '../Infos/create';
+import CreatePost from '../../../components/Admin/Infos/create';
+import CreateAuthor from '../../../components/Admin/Authors/create';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -16,7 +17,9 @@ function Dashboard() {
         <CreatePost />
       </Tab>
       <Tab eventKey="author" title="Auteurice">
-        Aujouter un-e auteurice
+        Ajouter un-e auteurice
+        <CreateAuthor />
+
       </Tab>
       <Tab eventKey="book" title="Ouvrage">
         Ajouter un ouvrage
