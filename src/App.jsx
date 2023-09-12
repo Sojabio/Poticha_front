@@ -30,8 +30,7 @@ import Info from './pages/dynamics/Info';
 import Login from './pages/Admin/Auth/Login';
 import Dashboard from './pages/Admin/Dashboard';
 import LogoutSuccess from './pages/Admin/Auth/LogoutSuccess';
-import UpdatePost from './components/Admin/Infos/update';
-import UpdateAuthor from './components/Admin/Authors/update';
+
 
 function App() {
   const [user] = useAtom(userAtom);
@@ -70,8 +69,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/admin" element={<Dashboard/>} />
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
-          <Route path="/updatepost/:id" element={<UpdatePost/>} />
-          <Route path="/updateauthor/:id" element={<UpdateAuthor/>} />
+
 
         </Routes>
       </Router>
