@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 import { useState, useEffect } from "react";
+import { useAtom } from "jotai";
+import { userAtom } from "../../../stores/userAtom";
+import DestroyPost from "../../../components/Admin/Infos/delete";
 
 const Infos = () => {
   const [posts, setPosts] = useState([]);
+  const [userInfo] = useAtom(userAtom);
 
-  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL + "/posts", {
@@ -16,7 +19,8 @@ const Infos = () => {
         });
         if (response.ok) {
           const jsonData = await response.json();
-          setPosts(jsonData);
+          const reversedData = jsonData.reverse();
+          setPosts(reversedData);
         } else {
           throw new Error("Erreur lors de la requête");
         }
@@ -24,8 +28,15 @@ const Infos = () => {
         console.error("Erreur de requête : ", error);
       }
     };
-    fetchData();
-  }, []);
+
+    useEffect(() => {
+      fetchData()
+    }, []);
+
+    const handlePostsDeleted = async () => {
+
+      await fetchData();
+    };
 
   return (
     <div>
@@ -38,6 +49,13 @@ const Infos = () => {
             <p>{post.content}</p>
             <p>posté le {post.created_at}</p>
             <Link to={`/actus/${post.id}`}>en savoir plus</Link>
+            <>
+            {userInfo.isLoggedIn ? (
+            <DestroyPost postId={post.id} onDelete={handlePostsDeleted} />
+            ) : (
+              <></>
+            )}
+            </>
           </div>
           <p>********************</p>
         </div>

@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 import { useState, useEffect } from "react";
+import { useAtom } from "jotai";
+import { userAtom } from "../../../stores/userAtom";
+import DestroyAuthor from "../../../components/Admin/Authors/delete";
 
 const Authors = () => {
   const [authors, setAuthors] = useState([]);
   const [authorBooks, setAuthorBooks] = useState({});
+  const [userInfo] = useAtom(userAtom);
 
-  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL + "/authors", {
@@ -17,9 +20,10 @@ const Authors = () => {
         });
         if (response.ok) {
           const jsonData = await response.json();
-          setAuthors(jsonData);
+          const reversedData = jsonData.reverse();
+          setAuthors(reversedData);
 
-          jsonData.forEach(async (author) => {
+          const bookPromises = jsonData.map(async (author) => {
             try {
               const booksResponse = await fetch(
                 `${API_URL}/books?author_id=${author.id}`,
@@ -32,18 +36,24 @@ const Authors = () => {
               );
               if (booksResponse.ok) {
                 const booksData = await booksResponse.json();
-                console.log(booksData)
-                const updatedAuthorBooks = { ...authorBooks }
-                updatedAuthorBooks[author.id] = booksData;
-                setAuthorBooks(updatedAuthorBooks);
-
+                return { authorId: author.id, books: booksData };
               } else {
                 throw new Error("Erreur lors de la requête des livres");
               }
             } catch (error) {
               console.error("Erreur de requête des livres : ", error);
+              return { authorId: author.id, books: [] };
             }
           });
+
+          const bookResults = await Promise.all(bookPromises);
+
+          const updatedAuthorBooks = {};
+          bookResults.forEach(({ authorId, books }) => {
+            updatedAuthorBooks[authorId] = books;
+          });
+
+          setAuthorBooks(updatedAuthorBooks);
         } else {
           throw new Error("Erreur lors de la requête");
         }
@@ -51,8 +61,15 @@ const Authors = () => {
         console.error("Erreur de requête : ", error);
       }
     };
-    fetchData();
-  }, []);
+
+
+    useEffect(() => {
+      fetchData()
+    }, []);
+
+  const handleAuthorsDeleted = async () => {
+    await fetchData();
+  };
 
   return (
     <div>
@@ -75,7 +92,7 @@ const Authors = () => {
             <p>email : {author.email}</p>
             <Link to={`/auteurices/${author.id}`}>en savoir plus</Link>
           </div>
-          {authorBooks[author.id] && (
+          {authorBooks[author.id] && authorBooks[author.id].length > 0 && (
             <div>
               <p>Ouvrages parus chez Le Pôticha:</p>
               <ul>
@@ -85,7 +102,12 @@ const Authors = () => {
               </ul>
             </div>
           )}
-            <p>********************</p>
+          {userInfo.isLoggedIn ? (
+            <DestroyAuthor authorId={author.id} onDelete={handleAuthorsDeleted} />
+            ) : (
+              <></>
+            )}
+          <p>********************</p>
         </div>
       ))}
     </div>

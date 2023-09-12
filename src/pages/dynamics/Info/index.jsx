@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
+import { useAtom } from "jotai";
+import { userAtom } from "../../../stores/userAtom";
 
 const Info = () => {
   const PostId = useParams().id
   const [post, setPost] = useState('')
+  const [userInfo] = useAtom(userAtom);
 
  useEffect(() => {
   const fetchData = async () => {
@@ -36,6 +39,14 @@ return (
     <p> {post.title}</p>
     <p>{post.content}</p>
     <p>posté le {post.created_at}</p>
+    <>
+    {userInfo.isLoggedIn ? (
+    <Link to={`/updatepost/${post.id}`}>Modifier ce post</Link>
+    ) : (
+      <>
+      </>
+    ) }
+    </>
   </div>
 )
 }
