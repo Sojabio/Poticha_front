@@ -40,7 +40,7 @@ function Login() {
           token: response.headers.get("Authorization"),
           id: data.user.id
         });
-        navigate('/loginsuccess')
+        navigate('/admin')
         console.log("authentification réussie");
         console.log(response.headers.get("Authorization"));
       } else {

@@ -15,7 +15,7 @@ const NavBar = () => {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
           <Nav className="me-auto">
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <NavDropdown title="Menu" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/abonnement">L'abonnement</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/appel">
                 L'appel à textes
@@ -28,7 +28,7 @@ const NavBar = () => {
               <NavDropdown.Divider />
               {userInfo.isLoggedIn ? (
                 <>
-                  <NavDropdown.Item as={Link} to="/login">Espace admin</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/admin">Espace admin</NavDropdown.Item>
                   <NavDropdown.Item><LogoutButton /></NavDropdown.Item>
                 </>
               ) : (
