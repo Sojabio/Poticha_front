@@ -50,7 +50,7 @@ function App() {
 
 
   return (
-    <>
+    <div className='globale'>
       <Router>
         <NavBar />
         <Routes>
@@ -70,7 +70,7 @@ function App() {
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
         </Routes>
       </Router>
-    </>
+    </div>
   )
 }
 
