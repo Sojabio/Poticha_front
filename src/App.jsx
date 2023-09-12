@@ -51,7 +51,7 @@ function App() {
 
 
   return (
-    <>
+    <div className='globale'>
       <Router>
         <NavBar />
         <Routes>
@@ -73,7 +73,7 @@ function App() {
 
         </Routes>
       </Router>
-    </>
+    </div>
   )
 }
 
