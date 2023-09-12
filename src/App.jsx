@@ -28,7 +28,7 @@ import Info from './pages/dynamics/Info';
 
 //admin
 import Login from './pages/Admin/Auth/Login';
-import LoginSuccess from './pages/Admin/Auth/LoginSuccess';
+import Dashboard from './pages/Admin/Dashboard';
 import LogoutSuccess from './pages/Admin/Auth/LogoutSuccess';
 
 function App() {
@@ -66,7 +66,7 @@ function App() {
           <Route path="/auteurices" element={<Authors/>} />
           <Route path="/auteurices/:id" element={<Author/>}/>
           <Route path="/login" element={<Login/>} />
-          <Route path="/loginsuccess" element={<LoginSuccess/>} />
+          <Route path="/admin" element={<Dashboard/>} />
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
         </Routes>
       </Router>
