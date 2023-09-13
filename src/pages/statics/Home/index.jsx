@@ -1,7 +1,8 @@
 import React from 'react'
 import './style.css'
-import ChatVollant from '../../../assets/chatvollant.png'
-import ChatPasContent from'../../../assets/chatpascontent.png'
+import chatvollant from '../../../assets/chatvollant.png'
+import chatpascontent from '../../../assets/chatpascontent.png'
+
 
 const Home = () => {
   return (
@@ -14,7 +15,6 @@ const Home = () => {
         <div className='CTA'>
           <button href="#" className='cta-button'> Clic pour t'abonner</button>
         </div>
-        <img src={ChatPasContent} alt="Chat Pas Content" className='chatpascontent'/>
       </section>
       <section className='middle-stripe'>
         <h3>Du théatre engagé</h3>
@@ -22,7 +22,7 @@ const Home = () => {
         <h3>dans ta boîte aux lettres</h3>
       </section>
       <section className='bottom-stripe'>
-        <img src={ChatVollant} alt="Chat qui vole grace à des ballons livre" className='chatvollant'/>
+        <img src={chatvollant} alt="chat vollant avec des ballons livre" className='chatvollant'></img>
         <div className='sub_link'>
           <h3> Envie de lire ?</h3>
           <button href='#'>Nos abonnements</button>
