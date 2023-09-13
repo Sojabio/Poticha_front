@@ -1,0 +1,237 @@
+@media (min-width: 1025px) {
+    .Call {
+        height: 100%;
+        width: 100%;
+        background-color: var(--purple);
+        overflow: hidden;
+    }
+
+    .scrollcontainer {
+        position: relative;
+        left: 47.5%;
+        top:2.5%;
+        bottom:2.5%;
+        height: 95%;
+        width: 50%;
+        background-color: var(--pink);
+        border: 4px solid var(--peach);
+        border-radius: 20px;
+    }
+
+    .scrollcontainer h3 {
+        position: relative;
+        padding-left:1rem ;
+        padding-top:0.3rem ;
+        width: 250px;
+        height: 3rem;
+        left: -70%;
+        top: 7%;
+        border: 4px solid var(--peach);
+        border-radius: 10px;
+    }
+
+    .content {
+        position: relative;
+        left:2.5%;
+        right:2.5%;
+        height: 90%;
+        width: 95%;
+        background-color: var(--blue);
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 20px;
+    }
+
+    .content button {
+        position: relative;
+        right: 0%;
+        left: 33%;
+        width: 35%;
+        height: 3rem;
+        border-radius: 10px;
+        background-color: var(--peach);
+        border: 2px solid var(--pink);
+        box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.2); 
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .content button:hover {
+        transform: translateY(-5px) translateX(-5px);
+        box-shadow: 10px 16px 2px rgba(0, 0, 0, 0.2);
+        border: 3px solid var(--peach);
+    }
+
+    .hungrycat {
+        display: none;
+    }
+    
+    .flyingcat {
+        position: relative;
+        top:-75%;
+        left: -78%;
+    }
+}
+@media (max-width:768px) {
+    .Call {
+        height: 100%;
+        width: 100%;
+        background-color: var(--purple);
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+       }
+
+    .scrollcontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: auto;
+        height: 95%;
+        width: 95%;
+        background-color: var(--pink);
+        border-radius: 20px;
+        border: 4px solid var(--peach);
+    }
+
+    .scrollcontainer h3 {
+        position: relative;
+        top: 10%;
+        font-size: 25px;
+        font-weight: 500;
+        padding-top: 0.5rem;
+        margin: 0 0 0 15px ;
+    }
+
+    .hungrycat {
+        width: 6rem;
+        z-index: 2;
+        position: relative;
+        top : 5%;
+        left: 70%;
+    }
+    .content {
+        width: 95%;
+        height: 100%;
+        background-color: var(--blue);
+        border-radius: 20px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content p {
+        font-size: 18px;
+        line-height: 1.4;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .content p:first-child{
+        padding-top: 15px;
+    }
+
+    .content button {
+        min-width: 12.5rem;
+        width: 33%;
+        height: 2.5rem;
+        background-color: var(--peach);
+        border-radius: 10px;
+        position: relative;
+        left: 33%;
+        right: 33%; 
+        border: 2px solid var(--pink);
+        transition: 0.5s ease-in-out ;        
+    }
+
+    .flyingcat {
+        display: none;
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .Call {
+        background-color: var(--purple);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+       }
+
+       .scrollcontainer {
+        padding-top: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 95%;
+        width: 95%;
+        background-color: var(--pink);
+        border-radius: 20px;
+        border: 4px solid var(--peach);
+    }
+
+    .scrollcontainer h3 {
+        position: relative;
+        top:8%;
+        font-size: 35px;
+        font-weight: 500;
+        padding-top: 0.5rem;
+        margin: 0 0 0 15px ;
+    }
+
+    .hungrycat {
+        width: 8rem;
+        z-index: 2;
+        position: relative;
+        left: 70%;
+        top:6%;
+    }
+    .content {
+        width: 95%;
+        height: 90%;
+        background-color: var(--blue);
+        border-radius: 20px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content p {
+        font-size: 23px;
+        line-height: 1.4;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .content p:first-child{
+        padding-top: 15px;
+    }
+
+    .content button {
+        width: 33%;
+        height: 4rem;
+        min-height: 3rem;
+        background-color: var(--peach);
+        border-radius: 10px;
+        margin-left: 33%;
+        margin-bottom: 2rem;
+        border: 2px solid var(--pink);
+        transition: 0.5s ease-in-out ;        
+    }
+
+    .flyingcat {
+        height: auto;
+        width: 20%;
+        position: relative;
+        left:83%;
+        right: 20%;
+    }
+
+}
