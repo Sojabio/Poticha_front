@@ -78,11 +78,8 @@ const Authors = () => {
           {author.image ? (
             <img src={author.image} alt={author.first_name} />
           ) : (
-            <img
-              src="/react.svg"
-              alt={author.first_name}
-              className="DefaultThumbnails"
-            />
+            <p>pas d'image disponible</p>
+
           )}
           <div>
             <h4>

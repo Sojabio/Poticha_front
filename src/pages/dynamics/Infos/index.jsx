@@ -42,6 +42,12 @@ const Infos = () => {
     <div>
       {posts.map((post) => (
         <div key={post.id}>
+          {post.image ? (
+            <img src={post.image} alt={posts.first_name} />
+          ) : (
+            <p>pas d'image disponible</p>
+
+          )}
           <div>
             <h4>
               {post.title}
