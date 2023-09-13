@@ -1,6 +1,8 @@
 import CreatePost from '../../../components/Admin/Infos/create';
 import CreateAuthor from '../../../components/Admin/Authors/create';
 import CreateBook from '../../../components/Admin/Books/create';
+import CreateCountdown from '../../../components/Admin/Countdown/setCountdown';
+import Countdown from '../../../components/Countdown/Countdown';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -24,6 +26,13 @@ function Dashboard() {
       <Tab eventKey="book" title="Ouvrage">
         Ajouter un ouvrage
         <CreateBook />
+      </Tab>
+      <Tab eventKey="countdown" title="Décompte">
+        Paramétrer le décompte
+        <CreateCountdown/>
+        Affichage du Décompte
+        <Countdown />
+
       </Tab>
     </Tabs>
   );
