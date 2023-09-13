@@ -5,7 +5,7 @@ import chatvollant from '../../../assets/chatvollant.png'
 
 const Call = () => {
   return (
-    <div className='FAQ'>
+    <div className='Call'>
       <div className="scrollcontainer">
         <h3>APPEL A TEXTES</h3>
         <img src={chatpascontent} alt="chat noir pas content" className='hungrycat'></img>

@@ -1,5 +1,5 @@
 @media (min-width: 1025px) {
-    .FAQ {
+    .Call {
         height: 100%;
         width: 100%;
         background-color: var(--purple);
@@ -72,7 +72,7 @@
     }
 }
 @media (max-width:768px) {
-    .FAQ {
+    .Call {
         height: 100%;
         width: 100%;
         background-color: var(--purple);
@@ -152,7 +152,7 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
-    .FAQ {
+    .Call {
         background-color: var(--purple);
         height: 100%;
         width: 100%;
