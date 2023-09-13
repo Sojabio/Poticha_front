@@ -1,328 +1,329 @@
 .homepage {
-    height: 100%;
-    overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 .banner {
-    background-color: var(--pink);
-    width: 100%;
-    height: 44.54%;   
-    border-bottom: 2px solid #000;
+  background-color: var(--pink);
+  width: 100%;
+  height: 44.54%;   
+  border-bottom: 2px solid #000;
 }
 
 .main-title {
-    color: #1E1E1E;
-    font-family: serif; 
-    font-size: 130px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal; 
-    margin-left: 3rem;
-    padding-top: 3rem;
+  color: #1E1E1E;
+  font-family: serif; 
+  font-size: 130px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal; 
+  margin-left: 3rem;
+  padding-top: 3rem;
 }
 
 .main-subtitle {
-    padding-top: 2rem;
-    padding-left: 3rem;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal; 
+  padding-top: 2rem;
+  padding-left: 3rem;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; 
 }
 
 .cta-button {
-    margin-left: 70vw;
-    display: flex;
-    position: relative;
-    top:-6rem;
-    left: -13rem;
-    width: 23.5rem;
-    height: 6.5rem;
-    padding: 26px 36px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; 
-    border-radius: 10px;
-    border: 1px solid #000;
-    background: var(--blue); 
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal; 
-    box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.2s ease-in-out;
+  margin-left: 70vw;
+  display: flex;
+  position: relative;
+  top:-6rem;
+  left: -13rem;
+  width: 23.5rem;
+  height: 6.5rem;
+  padding: 26px 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: var(--blue); 
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal; 
+  box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.2s ease-in-out;
 }
 
 .cta-button:hover {
-    transform: translateY(-5px) translateX(-5px);
-    box-shadow: 16px 20px 2px rgba(0, 0, 0, 0.2);
-    border: 3px solid var(--peach);
+  transform: translateY(-5px) translateX(-5px);
+  box-shadow: 16px 20px 2px rgba(0, 0, 0, 0.2);
+  border: 3px solid var(--peach);
 }
 
 .chatpascontent {
-    z-index: 999;
-    position: relative;
-    left: 115rem;
-    bottom: 2.2rem;
+  z-index: 999;
+  position: relative;
+  left: 115rem;
+  bottom: 2.2rem;
 }
 
 .middle-stripe {
-    background-color: var(--blue);
-    height: 17.34%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 2px solid #000;
+  background-color: var(--blue);
+  height: 17.34%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid #000;
 }
 
 .middle-stripe h3:first-child{
-    margin-top: 2rem;
-    margin-right:30rem;
+  margin-top: 2rem;
+  margin-right:30rem;
 }
 .middle-stripe h3:last-child {
-    margin-left: 30rem;
-    margin-bottom: 0rem;
+  margin-left: 30rem;
+  margin-bottom: 0rem;
 }
 
 .bottom-stripe {
-    background-color: var(--purple);
-    height: 38.12%;
-    display: flex;
-    padding-top: 5.563rem;
-    justify-content: center;
+  background-color: var(--purple);
+  height: 38.12%;
+  display: flex;
+  padding-top: 5.563rem;
+  justify-content: center;
 }
 
 .chatvollant {
-    width: 604px;
-    height: auto;
-    flex-shrink: 0;
-    position:fixed;
-    left:8rem;
-    bottom:3.5rem;
-    z-index: 998;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  position:relative;
+  left:6rem;
+  bottom:15rem;
+  z-index: 998;
 }
 
 .bottom-stripe div {
-    margin: 0 3.125rem;
-    margin-left: 10.313rem;
+  margin: 0 3.125rem;
+  margin-left: 10.313rem;
 }
 
 .bottom-stripe h3 {
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal; 
-    margin-left: 3.8rem;
-    margin-bottom: 1rem;
-    text-decoration:underline 1px solid #000;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal; 
+  margin-left: 3.8rem;
+  margin-bottom: 1rem;
+  text-decoration:underline 1px solid #000;
 }
 
 .bottom-stripe button {
-    width: 20rem;
-    height: 5rem;
-    padding: 13px 8px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 10px;
-    border: 1px solid #000;
-    background:var(--pink); 
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal; 
-    box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.2s;
+  width: 20rem;
+  height: 5rem;
+  padding: 13px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  background:var(--pink); 
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal; 
+  box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.2s;
 }
 
 .bottom-stripe button:hover {
-    transform: translateY(-5px) translateX(-5px);
-    background-color: var(--peach);
-    box-shadow: 16px 20px 2px rgba(0, 0, 0, 0.2);
-    border: 1px solid #000;
+  transform: translateY(-5px) translateX(-5px);
+  background-color: var(--peach);
+  box-shadow: 16px 20px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid #000;
 }
 
 @media (max-width: 768px) {
-    .homepage {
-      overflow: auto;
-      height: 100%;
-    }
-    .titles {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-    }
-
-    .main-title {
-      font-size: 70px;
-      margin-left: 1rem;
-      padding-top: 1rem;
-      font-weight: 700;
-    }
-  
-    .main-subtitle {
-      padding-left: 1.3rem;
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.8;
-    }
-  
-    .cta-button {
-      width:15rem;
-      height: 2rem;
-      align-content: center;
-      margin-left: 1rem;
+  .homepage {
+    overflow: auto;
+    height: 100%;
+  }
+  .titles {
       display: flex;
-      position: relative;
-      top: 0rem;
-      left: 3rem;
-      padding: 20px;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal; 
-    }
-  
-    .chatpascontent {
-      left: 18rem;
-      bottom: 1.5rem;
-      height: 80px;
-      width: auto;
-    }
-
-    .middle-stripe h3 {
-        font-size: 18px;
-        font-weight: 600;
-    }
-  
-    .middle-stripe h3:first-child {
-      margin-right: 0;
-      margin-left: 0;
-      margin-top: 1.2rem;
-      text-align: center;
-    }
-  
-    .middle-stripe h3:last-child {
-      margin-right: 0;
-      margin-left: 0;
-      text-align: center;
-    }
-  
-    .chatvollant {
-      width: 50%;
-      height: auto;
-      position: static;
-      margin-left: 3rem;
-    }
-  
-    .bottom-stripe {
       flex-direction: column;
-      align-items: center;
-      height: 100%;
-      padding-bottom: 3rem;
-    }
-  
-    .bottom-stripe div {
-      margin: 1rem 0;
-      text-align: center;
-    }
-  
-    .bottom-stripe h3 {
-      font-weight: 500;
-      font-size: 24px;
-      margin: 1rem 0;
-    }
-  
-    .bottom-stripe button {
-      width: 100%;
-      height: 4rem;
-      margin: 0rem 0;
-      font-weight: 500;
-    }
+      align-content: center;
+      justify-content: center;
   }
 
-
-  @media (min-width: 769px) and (max-width: 1200px) {
-
-    .homepage {
-        overflow: auto;
-    }
-    .main-title {
-      font-size: 100px;
-      margin-left: 2rem;
-      padding-top: 2rem;
-    }
-  
-    .main-subtitle {
-      padding-left: 2rem;
-      font-size: 24px;
-      line-height: 1.5;
-    }
-  
-    .cta-button {
-      width: 18rem;
-      height: 4rem;
-      margin-left: 2rem;
-      top: 4rem;
-      left: 15rem;
-      font-size: 24px;
-      padding: 16px;
-    }
-  
-    .chatpascontent {
-      left: 35rem;
-      bottom: -4.4rem;
-      height: 200px;
-      width: auto;
-    }
-  
-    .middle-stripe h3 {
-      font-size: 24px;
-      font-weight: 600;
-    }
-  
-    .middle-stripe h3:first-child {
-      margin-right: 0;
-      margin-left: 0;
-      margin-top: 1.2rem;
-      text-align: center;
-    }
-  
-    .middle-stripe h3:last-child {
-      margin-right: 0;
-      margin-left: 0;
-      text-align: center;
-    }
-  
-    .chatvollant {
-      width: 35%;
-      height: auto;
-      position: static;
-      margin-left: 2rem;
-    }
-  
-    .bottom-stripe {
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-      padding-bottom: 15rem;
-    }
-  
-    .bottom-stripe div {
-      margin: 1rem 0;
-      text-align: center;
-    }
-  
-    .bottom-stripe h3 {
-      font-weight: 500;
-      font-size: 24px;
-      margin: 1rem 0;
-    }
-  
-    .bottom-stripe button {
-      width: 100%;
-      height: 4rem;
-      margin: 0rem 0;
-      font-weight: 500;
-    }
+  .main-title {
+    font-size: 70px;
+    margin-left: 1rem;
+    padding-top: 1rem;
+    font-weight: 700;
   }
+
+  .main-subtitle {
+    padding-left: 1.3rem;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.8;
+  }
+
+  .cta-button {
+    width:15rem;
+    height: 2rem;
+    align-content: center;
+    margin-left: 1rem;
+    display: flex;
+    position: relative;
+    top: 0rem;
+    left: 3rem;
+    padding: 20px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+  }
+
+  .chatpascontent {
+    left: 18rem;
+    bottom: 1.5rem;
+    height: 80px;
+    width: auto;
+  }
+
+  .middle-stripe h3 {
+      font-size: 18px;
+      font-weight: 600;
+  }
+
+  .middle-stripe h3:first-child {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 1.2rem;
+    text-align: center;
+  }
+
+  .middle-stripe h3:last-child {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .chatvollant {
+    width: 50%;
+    height: auto;
+    position: static;
+    margin-left: 3rem;
+  }
+
+  .bottom-stripe {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 3rem;
+  }
+
+  .bottom-stripe div {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .bottom-stripe h3 {
+    font-weight: 500;
+    font-size: 24px;
+    margin: 1rem 0;
+  }
+
+  .bottom-stripe button {
+    width: 100%;
+    height: 4rem;
+    margin: 0rem 0;
+    font-weight: 500;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1200px) {
+
+  .homepage {
+      overflow: auto;
+  }
+  .main-title {
+    font-size: 100px;
+    margin-left: 2rem;
+    padding-top: 2rem;
+  }
+
+  .main-subtitle {
+    padding-left: 2rem;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    width: 15rem;
+    height: 2rem;
+    margin-left: 2rem;
+    top: 1rem;
+    left: 15rem;
+    font-size: 18px;
+    padding: 16px;
+  }
+
+  .chatpascontent {
+    left: 35rem;
+    bottom: -4.4rem;
+    height: 200px;
+    width: auto;
+  }
+
+  .middle-stripe h3 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .middle-stripe h3:first-child {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 1.2rem;
+    text-align: center;
+  }
+
+  .middle-stripe h3:last-child {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .chatvollant {
+    width: 20%;
+    height: auto;
+    position: static;
+    margin-left: 2rem;
+    margin-top: 3rem;
+  }
+
+  .bottom-stripe {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 15rem;
+  }
+
+  .bottom-stripe div {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .bottom-stripe h3 {
+    font-weight: 500;
+    font-size: 24px;
+    margin: 1rem 0;
+  }
+
+  .bottom-stripe button {
+    width: 100%;
+    height: 4rem;
+    margin: 0rem 0;
+    font-weight: 500;
+  }
+}
