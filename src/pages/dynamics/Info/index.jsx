@@ -36,6 +36,11 @@ const Info = () => {
 
 return (
   <div>
+    {post.image ? (
+      <img src={post.image} alt={post.title} />
+    ) : (
+      <p>pas d'image disponible</p>
+    )}
     <p> {post.title}</p>
     <p>{post.content}</p>
     <p>posté le {post.created_at}</p>

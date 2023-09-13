@@ -105,7 +105,7 @@ function UpdateAuthor() {
           />
         </div>
         <div>
-          <label htmlFor="lastName">Prénom :</label>
+          <label htmlFor="lastName">Nom :</label>
           <input
             placeholder={originalData.last_name}
             type="text"

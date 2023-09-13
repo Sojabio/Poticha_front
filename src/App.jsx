@@ -32,6 +32,7 @@ import Dashboard from './pages/Admin/Dashboard';
 import LogoutSuccess from './pages/Admin/Auth/LogoutSuccess';
 import UpdatePost from './components/Admin/Infos/update';
 import UpdateAuthor from './components/Admin/Authors/update';
+import UpdateBook from './components/Admin/Books/update';
 
 
 
@@ -74,8 +75,7 @@ function App() {
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
           <Route path="/updatepost/:id" element={<UpdatePost/>} />
           <Route path="/updateauthor/:id" element={<UpdateAuthor/>} />
-
-
+          <Route path="/updatebook/:id" element={<UpdateBook/>} />
 
         </Routes>
       </Router>

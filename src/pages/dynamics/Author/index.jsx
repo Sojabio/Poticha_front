@@ -27,6 +27,12 @@ const Author = () => {
   return (
     <div>
         <div>
+        {author.image ? (
+            <img src={author.image} alt={author.first_name} />
+          ) : (
+            <p>pas d'image disponible</p>
+
+          )}
           <h2>{author.first_name} {author.last_name}</h2>
           <p>Biographie: {author.biography}</p>
           <p>Email: {author.email}</p>
@@ -41,7 +47,7 @@ const Author = () => {
             </ul>
           </div>
           {userInfo.isLoggedIn ? (
-            <Link to={`/updateauthor/${author.id}`}>Modifier ce-tte auteurice</Link>
+            <Link to={`/updateauthor/${author.id}`}>Modifier cet-te auteurice</Link>
           ) : (
             <>
             </>

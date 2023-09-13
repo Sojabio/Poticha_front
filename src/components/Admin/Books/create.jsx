@@ -84,10 +84,10 @@ function CreateBook() {
           const data = await response.json();
           setAuthors(data);
         } else {
-          console.error("Erreur lors de la récupération des auteurs");
+          console.error("Erreur lors de la récupération des auteurices");
         }
       } catch (error) {
-        console.error("Erreur lors de la récupération des auteurs:", error);
+        console.error("Erreur lors de la récupération des auteurices:", error);
       }
     };
 
@@ -96,7 +96,6 @@ function CreateBook() {
 
   return (
     <div>
-    <h2>Création d'un nouvel ouvrage</h2>
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="title">Titre :</label>
