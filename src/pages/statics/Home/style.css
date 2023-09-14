@@ -5,17 +5,17 @@
 .banner {
   background-color: var(--pink);
   width: 100%;
-  height: 44.54%;   
+  height: 44.54%;
   border-bottom: 2px solid #000;
 }
 
 .main-title {
   color: #1E1E1E;
-  font-family: serif; 
+  font-family: serif;
   font-size: 130px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal; 
+  line-height: normal;
   margin-left: 3rem;
   padding-top: 3rem;
 }
@@ -26,7 +26,7 @@
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal; 
+  line-height: normal;
 }
 
 .cta-button {
@@ -40,15 +40,15 @@
   padding: 26px 36px;
   justify-content: center;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
   border-radius: 10px;
   border: 1px solid #000;
-  background: var(--blue); 
+  background: var(--blue);
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal; 
-  box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2); 
+  line-height: normal;
+  box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -110,7 +110,7 @@
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal; 
+  line-height: normal;
   margin-left: 3.8rem;
   margin-bottom: 1rem;
   text-decoration:underline 1px solid #000;
@@ -125,12 +125,12 @@
   gap: 10px;
   border-radius: 10px;
   border: 1px solid #000;
-  background:var(--pink); 
+  background:var(--pink);
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal; 
-  box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2); 
+  line-height: normal;
+  box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s;
 }
 
@@ -180,7 +180,7 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal; 
+    line-height: normal;
   }
 
   .chatpascontent {

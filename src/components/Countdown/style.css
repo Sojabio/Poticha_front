@@ -1,0 +1,49 @@
+.countdown-open {
+  margin-left: 70vw;
+  display: flex;
+  position: relative;
+  top:-10rem;
+  left: -13rem;
+  width: 23.5rem;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-subtitle {
+  margin-left: 70vw;
+  display: flex;
+  position: relative;
+  top:-10rem;
+  left: -13rem;
+  width: 25rem;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-closed {
+  margin-left: 70vw;
+  display: flex;
+  position: relative;
+  top:-9rem;
+  left: -13rem;
+  width: 23.5rem;
+  height: 6.5rem;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #000;
+}
+

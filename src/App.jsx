@@ -35,7 +35,6 @@ import UpdateAuthor from './components/Admin/Authors/update';
 import UpdateBook from './components/Admin/Books/update';
 
 
-
 function App() {
   const [user] = useAtom(userAtom);
   const [, setUser] = useAtom(userAtom);
@@ -71,7 +70,7 @@ function App() {
           <Route path="/auteurices" element={<Authors/>} />
           <Route path="/auteurices/:id" element={<Author/>}/>
           <Route path="/login" element={<Login/>} />
-          <Route path="/admin" element={<Dashboard/>} />
+          <Route path="/admin" element={<Dashboard/>}/>
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
           <Route path="/updatepost/:id" element={<UpdatePost/>} />
           <Route path="/updateauthor/:id" element={<UpdateAuthor/>} />
