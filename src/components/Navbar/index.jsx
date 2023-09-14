@@ -16,6 +16,7 @@ const NavBar = () => {
       <Container>
           <Nav className="me-auto">
             <NavDropdown title="Menu" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} to="/">Accueil</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/abonnement">L'abonnement</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/appel">
                 L'appel à textes
