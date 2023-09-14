@@ -3,6 +3,7 @@ import { useAtom } from 'jotai';
 import { useNavigate, useParams} from 'react-router-dom';
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
+import './style.css';
 
 function UpdateBook() {
   const [title, setTitle] = useState('');
@@ -124,70 +125,79 @@ function UpdateBook() {
   };
 
   return (
-    <div>
-      <h2>Modifier cet ouvrage</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={handleTitleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Description :</label>
-          <textarea
-            id="description"
-            value={description}
-            onChange={handleDescriptionChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="ISBN">ISBN:</label>
-          <input
-            type="text"
-            id="ISBN"
-            value={ISBN}
-            onChange={handleISBNChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="pages">Nombre de pages:</label>
-          <input
-            type="number"
-            id="pages"
-            value={pages}
-            onChange={handlePagesChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="season">Season:</label>
-          <input
-            type="number"
-            id="season"
-            value={season}
-            onChange={handleSeasonChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="author">Auteur :</label>
-          <select
-            id="author"
-            value={selectedAuthor}
-            onChange={handleAuthorChange}
-          >
-            <option value="">{originalData.author}</option>
-            {authors.map((author) => (
-              <option key={author.id} value={author.id}>
-                {author.first_name} {author.last_name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <button type="submit">Modifier</button>
-      </form>
+    <div className='update'>
+      <div className="update-book-container">
+        <h2 className='update-button'>Modifier cet ouvrage</h2>
+        <form className="update-book-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="title">Titre :</label>
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={handleTitleChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="description">Description :</label>
+            <textarea
+              id="description"
+              value={description}
+              onChange={handleDescriptionChange}
+              className="form-control"
+              rown="5"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="ISBN">ISBN :</label>
+            <input
+              type="text"
+              id="ISBN"
+              value={ISBN}
+              onChange={handleISBNChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="pages">Nombre de pages :</label>
+            <input
+              type="number"
+              id="pages"
+              value={pages}
+              onChange={handlePagesChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="season">Saison :</label>
+            <input
+              type="number"
+              id="season"
+              value={season}
+              onChange={handleSeasonChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="author">Auteurice :</label>
+            <select
+              id="author"
+              value={selectedAuthor}
+              onChange={handleAuthorChange}
+              className="form-control"
+            >
+              <option value="">{originalData.author}</option>
+              {authors.map((author) => (
+                <option key={author.id} value={author.id}>
+                  {author.first_name} {author.last_name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button type="submit" className="btn btn-primary">Modifier</button>
+        </form>
+      </div>  
     </div>
   );
 }

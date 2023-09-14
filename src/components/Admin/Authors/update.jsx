@@ -91,47 +91,56 @@ function UpdateAuthor() {
   };
 
   return (
-    <div>
-      <h2>Modifier cette auteurice</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="firstName">Prénom :</label>
-          <input
-            placeholder={originalData.first_name}
-            type="text"
-            id="firstName"
-            value={firstName || originalData.first_name}
-            onChange={handleFirstNameChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="lastName">Nom :</label>
-          <input
-            placeholder={originalData.last_name}
-            type="text"
-            id="lastName"
-            value={lastName || originalData.last_name}
-            onChange={handleLastNameChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="biography">Biography :</label>
-          <textarea
-            placeholder={originalData.biography}
-            id="biography"
-            value={biography || originalData.biography}
-            onChange={handleBiographyChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="image">image:</label>
-          <input
-          type="file"
-          name="image"
-          onChange={handleImageChange} />
-        </div>
-        <button type="submit">Modifier</button>
-      </form>
+    <div className="update">
+      <div className="update-author-container">
+        <h2 className="update-button">Modifier cette auteurice</h2>
+        <form className="update-author-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="firstName">Prénom :</label>
+            <input
+              placeholder={originalData.first_name}
+              type="text"
+              id="firstName"
+              value={firstName || originalData.first_name}
+              onChange={handleFirstNameChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lastName">Nom :</label>
+            <input
+              placeholder={originalData.last_name}
+              type="text"
+              id="lastName"
+              value={lastName || originalData.last_name}
+              onChange={handleLastNameChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="biography">Biography :</label>
+            <textarea
+              placeholder={originalData.biography}
+              id="biography"
+              value={biography || originalData.biography}
+              onChange={handleBiographyChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="image">image:</label>
+            <input
+              type="file"
+              name="image"
+              onChange={handleImageChange}
+              className="form-control"
+            />
+          </div>
+          <button type="submit" className="form-control">
+            Modifier
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

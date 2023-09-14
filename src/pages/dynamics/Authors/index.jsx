@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
 import DestroyAuthor from "../../../components/Admin/Authors/delete";
+import './style.css';
+import chatvollant from '../../../assets/chatvollant.png'
+import StyledContainer from '../../../components/ImageContainer/index.jsx';
+
+
 
 const Authors = () => {
   const [authors, setAuthors] = useState([]);
@@ -72,43 +77,47 @@ const Authors = () => {
   };
 
   return (
-    <div>
+    <div className="authors-container">
       {authors.map((author) => (
-        <div key={author.id}>
+        <div key={author.id} className="author-card">
           {author.image ? (
-            <img src={author.image} alt={author.first_name} />
-          ) : (
-            <p>pas d'image disponible</p>
-
+            <StyledContainer>
+              <img src={author.image} alt={author.first_name} className="author-image" />
+            </StyledContainer>          
+            ) : (
+            <StyledContainer>
+              <img src={chatvollant} alt={`Chat qui vole grace a des ballons livres`} />
+            </StyledContainer>
           )}
-          <div>
-            <h4>
+          <div className="author-details">
+            <h4 className="author-name">
               {author.first_name} {author.last_name}
             </h4>
-            <p>biographie : {author.biography}</p>
-            <p>email : {author.email}</p>
-            <Link to={`/auteurices/${author.id}`}>en savoir plus</Link>
+            <p className="author-biography">Biographie : {author.biography}</p>
+            <p className="author-email">Email : {author.email}</p>
+            <Link to={`/auteurices/${author.id}`} className="learn-more-link">En savoir plus</Link>
           </div>
           {authorBooks[author.id] && authorBooks[author.id].length > 0 && (
-            <div>
-              <p>Ouvrages parus chez Le Pôticha:</p>
+            <div className="author-books">
+              <p>Ouvrages parus chez Le Pôticha :</p>
               <ul>
                 {authorBooks[author.id].map((book) => (
-                  <li key={book.id}>{book.title}</li>
+                  <li key={book.id} className="book-title">{book.title}</li>
                 ))}
               </ul>
-            </div>
-          )}
-          {userInfo.isLoggedIn ? (
-            <DestroyAuthor authorId={author.id} onDelete={handleAuthorsDeleted} />
-            ) : (
+              {userInfo.isLoggedIn ? (
+                <DestroyAuthor authorId={author.id} onDelete={handleAuthorsDeleted} />
+              ) : (
               <></>
             )}
-          <p>********************</p>
+            </div>
+          )}
+          <hr className="divider" />
         </div>
       ))}
     </div>
   );
 };
+
 
 export default Authors;

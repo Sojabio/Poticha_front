@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai'
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
+import './style.css'
 
 const DestroyBook = ({bookId, onDelete}) => {
   const [user] = useAtom(userAtom);
@@ -29,7 +30,7 @@ const DestroyBook = ({bookId, onDelete}) => {
 
 
   return (
-    <button onClick={handleDestroy}>Supprimer cet ouvrage</button>
+    <button onClick={handleDestroy} className='delete-button'>Supprimer cet ouvrage</button>
   )
 }
 
