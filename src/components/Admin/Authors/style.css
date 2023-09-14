@@ -1,0 +1,111 @@
+.delete-button {
+    display: block;
+    text-align: center;
+    background-color: #ff6962;
+    color: #000;
+    padding: 10px 20px; 
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px; 
+    cursor: pointer;
+    box-shadow: 0 4px 5px rgb(239,50,70);
+    border: none;
+    transition: 0.1s ease;
+    margin-bottom: 1rem;
+  }
+
+.delete-button:hover {
+    background-color: rgb(239,50,70);
+    transform: translateZ(3px) translateX(-3px) translateY(3px);
+    box-shadow: 0 5px 8px rgb(239,50,70);
+}
+.update {
+    height: 100%;
+    width: 100%;
+    background-color: var(--pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.update-author-container {
+    width: 50%;
+    height: 80%;
+    max-width: 65%;
+    padding: 20px;
+    background-color:#f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .update-button {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .update-author-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .update-author-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .update-author-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .update-author-form select.form-control {
+    height: 40px;
+  }
+  
+  .update-author-form button {
+    display: block;
+    text-align: center;
+    background-color: var(--pink);
+    color: #000;
+    padding: 10px 50px; 
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    border: 2px solid var(--peach);
+    box-shadow: 0 4px 5px var(--purple);
+    transition: 0.1s ease;
+  }
+
+  .update-author-form button:hover {
+    background-color: var(--peach);
+    color: #000;
+    border: none;
+    transform: translateZ(3px) translateX(-3px) translateY(3px);
+    box-shadow: 0 5px 8px var(--pink);
+  }
+
+  
+  @media (max-width: 768px) {
+
+    .update-author-container {
+        width: 90%;
+        height: 95%;
+        max-width: 95%;
+    }
+    .update-author-form {
+      padding: 10px;
+    }
+  
+    .update-button {
+      font-size: 20px;
+    }
+  }
+  

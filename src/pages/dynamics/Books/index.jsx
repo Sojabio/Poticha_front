@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
 import DestroyBook from "../../../components/Admin/Books/delete";
+import './style.css';
+import chatvollant from '../../../assets/chatvollant.png'
+import StyledContainer from '../../../components/ImageContainer/index.jsx';
+
+
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -72,25 +77,27 @@ const Books = () => {
   };
 
   return (
-    <div>
+    <div className="library">
       {books.map((book) => (
-        <div key={book.id}>
-          <div>
-            <h4>titre : {book.title}</h4>
-            <p>description : {book.description}</p>
-            <p>ISBN : {book.ISBN}</p>
-            <p>date de parution : </p>
-            <div>
+        <div key={book.id} className="book-card">
+          <StyledContainer>
+            <img src={chatvollant} alt={`Image de ${book.title}`} />
+          </StyledContainer>
+          <div className="book-details">
+            <h4 className="book-title">{book.title}</h4>
+            <p className="book-description">{book.description}</p>
+            <p className="book-isbn">ISBN : {book.ISBN}</p>
+            <p className="book-release-date">Date de parution : {book.release_date}</p>
+            <div className="book-author">
               {booksAuthors[book.id] ? (
                 <>
-                  <li key={booksAuthors[book.id].id}>
-                    auteurice : {booksAuthors[book.id].first_name}{" "}
+                  <p className="author-name">
+                    {booksAuthors[book.id].first_name}{" "}
                     {booksAuthors[book.id].last_name}
-                  </li>
-                  <Link to={`/ouvrages/${book.id}`}>en savoir plus</Link>
+                  </p>
                 </>
               ) : (
-                <p>Auteurice non disponible</p>
+                <p className="author-not-available">Auteurice non disponible</p>
               )}
             </div>
           </div>
@@ -99,7 +106,7 @@ const Books = () => {
           ) : (
             <></>
           )}
-          <p>********************</p>
+          <Link to={`/ouvrages/${book.id}`} className="learn-more-link">En savoir plus</Link>
         </div>
       ))}
     </div>

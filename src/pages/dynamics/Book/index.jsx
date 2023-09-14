@@ -1,8 +1,11 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
+import chatvollant from '../../../assets/chatvollant.png'
+import StyledContainer from '../../../components/ImageContainer/index.jsx';
+import './style.css'
 
 const Book = () => {
   const { id } = useParams();
@@ -25,24 +28,24 @@ const Book = () => {
   }, []);
 
   return (
-    <div>
-        <div>
-          <h2>titre : {book.title}</h2>
-          <p> description : {book.description}</p>
-          <p>ISBN : {book.ISBN}</p>
-          <p> date de parution : </p>
-          <p>auteurice : {author.first_name} {author.last_name}</p>
-          <Link to={`/auteurices/${author.id}`}>en savoir plus sur l'auteurice</Link>
-          <div>
-          {userInfo.isLoggedIn ? (
-            <Link to={`/updatebook/${book.id}`}>Modifier cet ouvrage</Link>
-          ) : (
-            <>
-            </>
-          ) }
+    <div className="book">
+    <div className="article-container">
+      <StyledContainer>
+            <img src={chatvollant} alt={`Image de ${book.title}`} />
+      </StyledContainer>
+      <div className="article-details">
+        <h2 className="article-title">{book.title}</h2>
+        <p className="article-description">{book.description}</p>
+        <p className="article-isbn">ISBN : {book.ISBN}</p>
+        <Link to={`/auteurices/${author.id}`} className="article-author-link">{author.first_name} {author.last_name}</Link>
+        {userInfo.isLoggedIn && (
+          <div className="article-update-link">
+            <Link to={`/updatebook/${book.id}`} className="update-author-link">Modifier cet ouvrage</Link>
           </div>
-        </div>
+        )}
+      </div>
     </div>
+  </div>
   );
 };
 

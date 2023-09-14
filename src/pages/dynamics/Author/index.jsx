@@ -3,6 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
+import chatvollant from '../../../assets/chatvollant.png'
+import StyledContainer from '../../../components/ImageContainer/index.jsx';
+import './style.css';
 
 const Author = () => {
   const { id } = useParams();
@@ -25,36 +28,46 @@ const Author = () => {
   }, []);
 
   return (
-    <div>
-        <div>
-        {author.image ? (
+    <div className="author">
+      <div className="article-container">
+        <div className="article-image">
+          {author.image ? (
             <img src={author.image} alt={author.first_name} />
           ) : (
-            <p>pas d'image disponible</p>
-
+            <StyledContainer>
+              <img src={chatvollant} alt={`Chat qui vole grace a des ballons livres`} />
+            </StyledContainer>
           )}
-          <h2>{author.first_name} {author.last_name}</h2>
-          <p>Biographie: {author.biography}</p>
-          <p>Email: {author.email}</p>
-          <div>
+        </div>
+        <div className="article-details">
+          <h2 className="article-title">
+            {author.first_name} {author.last_name}
+          </h2>
+          <p className="article-description">Biographie : {author.biography}</p>
+          <p className="article-email">Email : {author.email}</p>
+          <div className="article-books">
             Ouvrages publiés chez LePôticha :
             <ul>
               {books.map((book) => (
                 <li key={book.id}>
-                  <Link to={`/ouvrages/${book.id}`}>{book.title}</Link>
+                  <Link to={`/ouvrages/${book.id}`} className="article-book-link">
+                    {book.title}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
           {userInfo.isLoggedIn ? (
-            <Link to={`/updateauthor/${author.id}`}>Modifier cet-te auteurice</Link>
+            <Link to={`/updateauthor/${author.id}`} className="update-author-link">
+              Modifier cet-te auteurice
+            </Link>
           ) : (
-            <>
-            </>
-          ) }
+            <></>
+          )}
         </div>
+      </div>
     </div>
   );
 };
 
-export default Author;
+  export default Author;

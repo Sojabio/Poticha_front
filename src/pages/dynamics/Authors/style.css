@@ -1,0 +1,111 @@
+/* Styles pour la mise en page des auteurs */
+.authors-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: var(--peach);
+  }
+  
+  .author-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 5px var(--purple);
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  .author-image {
+    max-width: 90%;
+    max-height: 90%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .author-image img {
+    max-width: 75%;
+    max-height: 75%;
+    width: auto;
+    height: auto;
+  }
+  
+  .author-name {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .author-biography {
+    height:4.5rem;
+    max-height: 4.5em;
+    line-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 2rem;
+  }
+  
+  
+  .author-email {
+    margin-bottom: 10px;
+  }
+  
+  .learn-more-link {
+    display: block;
+    text-align: center;
+    background-color: var(--pink);
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 5px var(--purple);
+    transition: 0.1s ease;
+  }
+  
+  .learn-more-link:hover {
+    background-color: var(--purple);
+    transform: translateZ(3px) translateX(-3px) translateY(3px);
+    box-shadow: 0 5px 8px var(--pink);
+  }
+  
+  .no-image {
+    color: #ff0000;
+  }
+  
+  .divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+  }
+
+  .book-title {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .authors-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .author-card {
+      width: 90%;
+      margin-bottom: 20px;
+    }
+  }
+  
