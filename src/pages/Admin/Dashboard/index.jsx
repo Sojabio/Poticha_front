@@ -1,13 +1,15 @@
 import CreatePost from '../../../components/Admin/Infos/create';
 import CreateAuthor from '../../../components/Admin/Authors/create';
 import CreateBook from '../../../components/Admin/Books/create';
-import CreateCountdown from '../../../components/Admin/Countdown/setCountdown';
+import UpdateCountdown from '../../../components/Admin/Countdown/UpdateCountdown';
 import Countdown from '../../../components/Countdown/Countdown';
+import { useState } from 'react';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 function Dashboard() {
+  const [countdownInfo, setCountdownInfo] = useState({});
   return (
     <Tabs
       defaultActiveKey="profile"
@@ -29,10 +31,7 @@ function Dashboard() {
       </Tab>
       <Tab eventKey="countdown" title="Décompte">
         Paramétrer le décompte
-        <CreateCountdown/>
-        Affichage du Décompte
-        <Countdown />
-
+        <UpdateCountdown/>
       </Tab>
     </Tabs>
   );

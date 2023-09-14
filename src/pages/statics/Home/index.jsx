@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 import chatvollant from '../../../assets/chatvollant.png'
 import chatpascontent from '../../../assets/chatpascontent.png'
-
+import Countdown from '../../../components/Countdown/Countdown'
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
           <h3 className='main-subtitle'> La maison d'édition de théâtre libre </h3>
         </div>
         <div className='CTA'>
-          <button href="#" className='cta-button'> Clic pour t'abonner</button>
+            <Countdown />
         </div>
       </section>
       <section className='middle-stripe'>
@@ -29,7 +29,7 @@ const Home = () => {
         </div>
         <div className='texts_link'>
           <h3> Envie d'écrire ?</h3>
-          <button href='#'>Notre appel à texts</button>
+          <button href='#'>Notre appel à textes</button>
         </div>
         <div className='suggests_link'>
           <h3> Envie de rien ?</h3>

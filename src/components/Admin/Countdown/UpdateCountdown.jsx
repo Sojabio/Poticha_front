@@ -3,13 +3,17 @@ import { useAtom } from 'jotai';
 import { useNavigate} from 'react-router-dom';
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
+import formatDate from './convertDate';
+import Form from 'react-bootstrap/Form';
 
-function setCountdown() {
+function UpdateCountdown() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const [originalData, setOriginalData] = useState([]);
+  const [originalData, setOriginalData] = useState({});
   const [user] = useAtom(userAtom);
+  const [formSubmitted, setFormSubmitted] = useState('');
+  const [countDownId, setCountDownId] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,9 +28,11 @@ function setCountdown() {
           const jsonData = await response.json();
           const data = jsonData[0];
           setOriginalData(data);
-          setStartDate(data.start_date || '');
-          setEndDate(data.end_date || '');
-          setIsOpen(data.is_open || false);
+          setStartDate(data.start_date);
+          setEndDate(data.end_date);
+          setIsOpen(data.is_open);
+          setCountDownId(data.id)
+
         } else {
           throw new Error('Erreur lors de la requête');
         }
@@ -38,10 +44,8 @@ function setCountdown() {
   }, []);
 
   useEffect(() => {
-
-    console.log(originalData);
-    console.log(isOpen)
-  }, [originalData]);
+    console.log('originalisOpen:', isOpen);
+  }, [isOpen]);
 
   function handleStartDateChange(event) {
     setStartDate(event.target.value);
@@ -52,22 +56,24 @@ function setCountdown() {
   }
 
   function handleIsOpenChange() {
-    setIsOpen((prev) => !prev)
+    handleSubmit();
+    setIsOpen((prevIsOpen) => !prevIsOpen);
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+
+  const handleSubmit = async () => {
+    setFormSubmitted(true);
 
     const newCountdown = {
       countdown: {
         start_date: startDate || originalData.start_date,
         end_date: endDate || originalData.end_date,
-        is_open: isOpen || originalData.is_open,
+        is_open: !isOpen,
       }
     };
 
     try {
-      const response = await fetch(API_URL + '/countdowns/4', {
+      const response = await fetch(API_URL + '/countdowns/' + countDownId, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -78,8 +84,7 @@ function setCountdown() {
 
       if (response.ok) {
         console.log('Le compteur a été initialisé avec succès');
-
-
+        console.log(`état du compteur: ${isOpen}`)
       } else {
         console.error("Erreur lors de l'initialisation du compteur'");
       }
@@ -91,33 +96,43 @@ function setCountdown() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="start_date">date de début:</label>
-          <input
-            type="datetime-local"
-            id="startDate"
-            value={startDate || originalData.start_date}
-            onChange={handleStartDateChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="end_date">date de fin:</label>
+        {!isOpen ? (
+          <>
+          <div>
+            <label htmlFor="startDate">date de début:</label>
+            <input
+              type="datetime-local"
+              id="startDate"
+              value={startDate}
+              onChange={handleStartDateChange}
+            />
+          </div>
+          <div>
+          <label htmlFor="endDate">date de fin:</label>
           <input
             type="datetime-local"
             id="endDate"
-            value={endDate || originalData.end_date}
+            value={endDate}
             onChange={handleEndDateChange}
           />
         </div>
-        <div>
-          <button type="button" onClick={handleIsOpenChange}>
-            {isOpen ? "Désactiver" : "Activer"}
-          </button>
-        </div>
-        <button type="submit">Modifier</button>
+        </>
+        ) : (
+          <>
+          <p>Le décompte est activé du {formatDate(startDate)} au {formatDate(endDate)}</p>
+          </>
+        )}
+          <Form.Check
+            type="switch"
+            id="toggle-switch"
+            label={isOpen ? "Désactiver" : "Activer"}
+            checked={isOpen}
+            onChange={handleIsOpenChange}
+          />
+        {/* <button type="submit">Confirmer</button> */}
       </form>
     </div>
   );
 }
 
-export default setCountdown;
+export default UpdateCountdown;
