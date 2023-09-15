@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
+import './stylecreatepost.css';
 
 function CreatePost() {
   const [title, setTitle] = useState('');
@@ -54,33 +55,38 @@ function CreatePost() {
   }
 
   return (
-    <div>
-      <form  encType="multipart/form-data" onSubmit={handleSubmit}>
-        <div>
+    <div className='create-post'>
+      <form encType="multipart/form-data" onSubmit={handleSubmit} className='post-form'>
+      <h3> Ajouter un post</h3>
+        <div className='form-group'>
           <label htmlFor="title">Titre :</label>
           <input
             type="text"
             id="title"
             value={title}
             onChange={handleTitleChange}
+            className='form-control'
           />
         </div>
-        <div>
+        <div className='form-group'>
           <label htmlFor="content">Contenu :</label>
           <textarea
-            id="description"
+            id="content"
             value={content}
             onChange={handleContentChange}
+            className='form-control'
           />
         </div>
-        <div>
-          <label htmlFor="image">image:</label>
+        <div className='form-group'>
+          <label htmlFor="image">Image :</label>
           <input
-          type="file"
-          name="image"
-          onChange={handleImageChange} />
+            type="file"
+            name="image"
+            onChange={handleImageChange}
+            className='form-control-file'
+          />
         </div>
-        <button type="submit">Ajouter</button>
+        <button type="submit" className='submit-button'>Ajouter</button>
       </form>
     </div>
   );

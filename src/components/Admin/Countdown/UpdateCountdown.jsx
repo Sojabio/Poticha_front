@@ -5,6 +5,7 @@ import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 import formatDate from './convertDate';
 import Form from 'react-bootstrap/Form';
+import './countdownformstyle.css';
 
 function UpdateCountdown() {
   const [startDate, setStartDate] = useState('');
@@ -94,11 +95,12 @@ function UpdateCountdown() {
   };
 
   return (
-    <div>
+    <div className='countdown-form'>
+      <h3> Paramêtrer le timer d'abonnement</h3>
       <form onSubmit={handleSubmit}>
         {!isOpen ? (
           <>
-          <div>
+          <div className='form-group'>
             <label htmlFor="startDate">date de début:</label>
             <input
               type="datetime-local"
@@ -107,7 +109,7 @@ function UpdateCountdown() {
               onChange={handleStartDateChange}
             />
           </div>
-          <div>
+          <div className='form-group'>
           <label htmlFor="endDate">date de fin:</label>
           <input
             type="datetime-local"

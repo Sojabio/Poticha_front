@@ -1,4 +1,14 @@
-/* Styles pour la mise en page des auteurs */
+.authors {
+  height: 100%;
+  width: 100%;
+  margin-top: 3.5rem;
+  background-color: var(--peach);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  overflow: auto;
+}
+
 .authors-container {
     display: flex;
     flex-wrap: wrap;
@@ -52,13 +62,16 @@
     padding-bottom: 2rem;
   }
   
-  
+  .author-books {
+    margin-top: 20px;
+  }
   .author-email {
     margin-bottom: 10px;
   }
   
   .learn-more-link {
     display: block;
+    min-width: 60%;
     text-align: center;
     background-color: var(--pink);
     color: #000;
@@ -66,8 +79,7 @@
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 10px auto 20px auto;
     cursor: pointer;
     box-shadow: 0 4px 5px var(--purple);
     transition: 0.1s ease;

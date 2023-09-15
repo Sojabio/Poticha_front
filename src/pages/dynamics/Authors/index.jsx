@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
 import DestroyAuthor from "../../../components/Admin/Authors/delete";
-import './style.css';
+import './styleauthors.css';
 import chatvollant from '../../../assets/chatvollant.png'
 import StyledContainer from '../../../components/ImageContainer/index.jsx';
 
@@ -77,44 +77,46 @@ const Authors = () => {
   };
 
   return (
-    <div className="authors-container">
-      {authors.map((author) => (
-        <div key={author.id} className="author-card">
-          {author.image ? (
-            <StyledContainer>
-              <img src={author.image} alt={author.first_name} className="author-image" />
-            </StyledContainer>          
-            ) : (
-            <StyledContainer>
-              <img src={chatvollant} alt={`Chat qui vole grace a des ballons livres`} />
-            </StyledContainer>
-          )}
-          <div className="author-details">
-            <h4 className="author-name">
-              {author.first_name} {author.last_name}
-            </h4>
-            <p className="author-biography">Biographie : {author.biography}</p>
-            <p className="author-email">Email : {author.email}</p>
-            <Link to={`/auteurices/${author.id}`} className="learn-more-link">En savoir plus</Link>
-          </div>
-          {authorBooks[author.id] && authorBooks[author.id].length > 0 && (
-            <div className="author-books">
-              <p>Ouvrages parus chez Le Pôticha :</p>
-              <ul>
-                {authorBooks[author.id].map((book) => (
-                  <li key={book.id} className="book-title">{book.title}</li>
-                ))}
-              </ul>
-              {userInfo.isLoggedIn ? (
-                <DestroyAuthor authorId={author.id} onDelete={handleAuthorsDeleted} />
+    <div className="authors">
+      <div className="authors-container">
+        {authors.map((author) => (
+          <div key={author.id} className="author-card">
+            {author.image ? (
+              <StyledContainer>
+                <img src={author.image} alt={author.first_name} className="author-image" />
+              </StyledContainer>          
               ) : (
-              <></>
+              <StyledContainer>
+                <img src={chatvollant} alt={`Chat qui vole grace a des ballons livres`} />
+              </StyledContainer>
             )}
+            <div className="author-details">
+              <h4 className="author-name">
+                {author.first_name} {author.last_name}
+              </h4>
+              <p className="author-biography">Biographie : {author.biography}</p>
+              <p className="author-email">Email : {author.email}</p>
+              <Link to={`/auteurices/${author.id}`} className="learn-more-link">En savoir plus</Link>
             </div>
-          )}
-          <hr className="divider" />
-        </div>
-      ))}
+            {authorBooks[author.id] && authorBooks[author.id].length > 0 && (
+              <div className="author-books">
+                <p>Ouvrages parus chez Le Pôticha :</p>
+                <ul>
+                  {authorBooks[author.id].map((book) => (
+                    <li key={book.id} className="book-title">{book.title}</li>
+                  ))}
+                </ul>
+                {userInfo.isLoggedIn ? (
+                  <DestroyAuthor authorId={author.id} onDelete={handleAuthorsDeleted} />
+                ) : (
+                <></>
+              )}
+              </div>
+            )}
+            <hr className="divider" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAtom } from 'jotai';
 import { useNavigate } from 'react-router-dom';
-
+import './stylecreateauthors.css';
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 
@@ -60,42 +60,48 @@ function CreateAuthor() {
   }
 
   return (
-    <div>
-      <form  encType="multipart/form-data" onSubmit={handleSubmit}>
-        <div>
+    <div className='create-author'>
+      <form encType="multipart/form-data" onSubmit={handleSubmit} className='author-form'>
+      <h3>Ajouter un-e auteurice</h3>
+        <div className='form-group'>
           <label htmlFor="firstName">Prénom :</label>
           <input
             type="text"
             id="firstName"
             value={firstName}
             onChange={handleFirstNameChange}
+            className='form-control'
           />
         </div>
-        <div>
+        <div className='form-group'>
           <label htmlFor="lastName">Nom :</label>
           <input
             type="text"
             id="lastName"
             value={lastName}
             onChange={handleLastNameChange}
+            className='form-control'
           />
         </div>
-        <div>
+        <div className='form-group'>
           <label htmlFor="biography">Biography :</label>
           <textarea
             id="biography"
             value={biography}
             onChange={handleBiographyChange}
+            className='form-control'
           />
         </div>
-        <div>
-          <label htmlFor="image">image:</label>
+        <div className='form-group'>
+          <label htmlFor="image">Image :</label>
           <input
-          type="file"
-          name="image"
-          onChange={handleImageChange} />
+            type="file"
+            name="image"
+            onChange={handleImageChange}
+            className='form-control-file'
+          />
         </div>
-        <button type="submit">Ajouter</button>
+        <button type="submit" className='submit-button'>Ajouter</button>
       </form>
     </div>
   );

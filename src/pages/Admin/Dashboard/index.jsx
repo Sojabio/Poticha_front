@@ -4,6 +4,7 @@ import CreateBook from '../../../components/Admin/Books/create';
 import UpdateCountdown from '../../../components/Admin/Countdown/UpdateCountdown';
 import Countdown from '../../../components/Countdown/Countdown';
 import { useState } from 'react';
+import './styledashboard.css';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -12,28 +13,41 @@ function Dashboard() {
   const [countdownInfo, setCountdownInfo] = useState({});
   return (
     <Tabs
-      defaultActiveKey="profile"
-      id="justify-tab-example"
-      className="mb-3"
-      justify
+    defaultActiveKey="post"
+    id="justify-tab-example"
+    className="mb-3"
+    justify
+  >
+    <Tab
+      eventKey="post"
+      title="Info"
+      tabClassName="custom-tab" 
     >
-      <Tab eventKey="post" title="Info">
-        Ajouter une information
-        <CreatePost />
-      </Tab>
-      <Tab eventKey="author" title="Auteurice">
-        Ajouter un-e auteurice
-        <CreateAuthor />
-      </Tab>
-      <Tab eventKey="book" title="Ouvrage">
-        Ajouter un ouvrage
-        <CreateBook />
-      </Tab>
-      <Tab eventKey="countdown" title="Décompte">
-        Paramétrer le décompte
-        <UpdateCountdown/>
-      </Tab>
-    </Tabs>
+      <CreatePost />
+    </Tab>
+    <Tab
+      eventKey="author"
+      title="Auteurice"
+      tabClassName="custom-tab" 
+    >
+      <CreateAuthor />
+    </Tab>
+    <Tab
+      eventKey="book"
+      title="Ouvrage"
+      tabClassName="custom-tab" 
+    >
+      <CreateBook />
+    </Tab>
+    <Tab
+      eventKey="countdown"
+      title="Décompte"
+      tabClassName="custom-tab" 
+    >
+      <UpdateCountdown />
+    </Tab>
+  </Tabs>
+  
   );
 }
 
