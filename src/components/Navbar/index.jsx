@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import './stylenavbar.css'
 
 const NavBar = () => {
   const [userInfo] = useAtom(userAtom);
@@ -15,7 +16,7 @@ const NavBar = () => {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
           <Nav className="me-auto">
-            <NavDropdown title="Menu" id="basic-nav-dropdown">
+            <NavDropdown title="Menu" id="basic-nav-dropdown" className='dropdown-b'>
             <NavDropdown.Item as={Link} to="/">Accueil</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/abonnement">L'abonnement</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/appel">
