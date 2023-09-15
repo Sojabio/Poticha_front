@@ -33,11 +33,11 @@ import LogoutSuccess from './pages/Admin/Auth/LogoutSuccess';
 import UpdatePost from './components/Admin/Infos/update';
 import UpdateAuthor from './components/Admin/Authors/update';
 import UpdateBook from './components/Admin/Books/update';
+import ProtectedRoute from './components/Routes';
 
 
 function App() {
-  const [user] = useAtom(userAtom);
-  const [, setUser] = useAtom(userAtom);
+  const [user, setUser] = useAtom(userAtom);
 
   useEffect(() => {
     const token = Cookies.get('token');
@@ -70,11 +70,15 @@ function App() {
           <Route path="/auteurices" element={<Authors/>} />
           <Route path="/auteurices/:id" element={<Author/>}/>
           <Route path="/login" element={<Login/>} />
-          <Route path="/admin" element={<Dashboard/>}/>
+          {/* <Route path="/admin" element={<Dashboard/>}/> */}
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
           <Route path="/updatepost/:id" element={<UpdatePost/>} />
           <Route path="/updateauthor/:id" element={<UpdateAuthor/>} />
           <Route path="/updatebook/:id" element={<UpdateBook/>} />
+          <Route path="/admin" element={
+            <ProtectedRoute>
+              <Dashboard/>
+            </ProtectedRoute>}/>
 
         </Routes>
       </Router>
