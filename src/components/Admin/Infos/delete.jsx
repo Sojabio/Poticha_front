@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai'
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
+import './style.css'
 
 const DestroyPost = ({postId, onDelete}) => {
   const [user] = useAtom(userAtom);
@@ -29,7 +30,7 @@ const DestroyPost = ({postId, onDelete}) => {
 
 
   return (
-    <button onClick={handleDestroy}>Supprimer ce post</button>
+    <button onClick={handleDestroy} className='delete-button'>Supprimer ce post</button>
   )
 }
 

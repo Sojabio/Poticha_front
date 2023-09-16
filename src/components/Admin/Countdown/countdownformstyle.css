@@ -1,0 +1,34 @@
+.countdown-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--pink) ;
+    width: 50%;
+    height: 95%;
+    padding: 3%;
+    margin: auto;
+    margin-top: 3%;
+    border-radius: 8px;
+}
+
+.countdown-form h3 {
+    margin-bottom: 5%;
+}
+
+
+.form-group {
+    margin-top: 25px;
+    width: 100%;
+}
+
+
+@media (max-width:768px) {
+    .countdown-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:95%;
+        margin-top: 14%;
+    }
+}
