@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_URL } from "../../../stores/apiUrl"; // Assuming API_URL is defined in this file
+import { API_URL } from "../../../stores/apiUrl";
 
 export const ContactForm = () => {
   let defaultFields = {
@@ -12,13 +12,9 @@ export const ContactForm = () => {
 
   const [message, setMessage] = useState(defaultFields);
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState(false);
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
-  if (successMessage && navigate) {
-    console.log("message envoyé avec succès");
-    navigate('');
-  }
 
   const newMessage = (formData) => {
     fetch(API_URL + "/contacts", {
@@ -34,7 +30,6 @@ export const ContactForm = () => {
         if (response.ok) {
           return response;
         } else {
-          let errorMessage = `${response.status} (${response.statusText})`;
           let error = new Error(errorMessage);
           throw error;
         }
@@ -42,10 +37,10 @@ export const ContactForm = () => {
       .then((response) => response.json())
       .then((body) => {
         if (body.sent) {
-          setSuccessMessage(true);
-          navigate('/')
+          setSuccess(true);
+          navigate('/mailsuccess')
         } else {
-          setSuccessMessage(false);
+          setSuccess(false);
         }
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
@@ -63,11 +58,18 @@ export const ContactForm = () => {
     const requiredFields = ["name", "email", "subject", "message"];
     requiredFields.forEach((field) => {
       if (message[field].trim() === "") {
-        submitErrors[field] = "is blank";
+        submitErrors[field] = "";
       }
     });
     setErrors(submitErrors);
     return Object.keys(submitErrors).length === 0;
+  };
+
+  const fieldNamesInFrench = {
+    name: "Nom",
+    email: "Email",
+    subject: "Objet",
+    message: "Message",
   };
 
   const handleSubmit = (event) => {
@@ -79,28 +81,26 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="section">
-      <div className="container">
-        <form onSubmit={handleSubmit} className="new-post-form callout">
+    <section>
+      <div>
+        <form onSubmit={handleSubmit}>
           {Object.keys(errors).length > 0 && (
-            <div className="notification is-danger">
-              <p><strong>Please fix the following errors:</strong></p>
+            <div>
+              <p><strong>Votre message n'a pas pu être envoyé car vous avez oublié de remplir le(s) champ(s) suivant(s) :</strong></p>
               <ul>
                 {Object.keys(errors).map((field, index) => (
-                  <li key={index}>{`${field} ${errors[field]}`}</li>
+                  <li key={index}>{`${fieldNamesInFrench[field]} ${errors[field]}`}</li>
                 ))}
               </ul>
             </div>
           )}
-
-<div className="field">
-            <label className="label">
-              Name:
-              <div className="control">
+          <div>
+            <label>
+              Nom:
+              <div>
                 <input
-                  className="input"
                   type="text"
-                  placeholder="Please enter your name"
+                  placeholder="Nom"
                   name="name"
                   id="name"
                   onChange={handleChange}
@@ -109,15 +109,13 @@ export const ContactForm = () => {
               </div>
             </label>
           </div>
-
-          <div className="field">
-            <label className="label">
+          <div>
+            <label>
               Email:
-              <div className="control">
+              <div>
                 <input
-                  className="input"
                   type="text"
-                  placeholder="Please enter your email address"
+                  placeholder="adresse email"
                   name="email"
                   id="email"
                   onChange={handleChange}
@@ -126,15 +124,13 @@ export const ContactForm = () => {
               </div>
             </label>
           </div>
-
-          <div className="field">
-            <label className="label">
-              Subject:
-              <div className="control">
+          <div>
+            <label>
+              Objet:
+              <div>
                 <input
-                  className="input"
                   type="text"
-                  placeholder="Please add a message subject"
+                  placeholder="Objet du message"
                   name="subject"
                   id="subject"
                   onChange={handleChange}
@@ -143,14 +139,12 @@ export const ContactForm = () => {
               </div>
             </label>
           </div>
-
-          <div className="field">
-            <label className="label">
+          <div>
+            <label>
               Message:
-              <div className="control">
+              <div>
                 <textarea
-                  className="textarea"
-                  placeholder="Add your message here"
+                  placeholder="Message"
                   name="message"
                   id="message"
                   onChange={handleChange}
@@ -159,22 +153,12 @@ export const ContactForm = () => {
               </div>
             </label>
           </div>
-
-
-          <div className="field is-grouped">
-            <div className="control">
-              <button className="button is-link">Submit</button>
-            </div>
-            <div className="control">
-              <button className="button is-link is-light">Cancel</button>
+          <div>
+            <div>
+              <button>Envoyer</button>
             </div>
           </div>
         </form>
-        {successMessage === false && (
-          <div className="blog-flex">
-            <p>Sorry, your message couldn't be sent. Please try again and make sure all fields are filled out.</p>
-          </div>
-        )}
       </div>
     </section>
   );
