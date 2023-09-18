@@ -8,6 +8,7 @@ import { API_URL } from '../../../stores/apiUrl';
 function CreateAuthor() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
   const [biography, setBiography] = useState('');
   const [image, setImage] = useState('');
   const [user] = useAtom(userAtom);
@@ -21,9 +22,14 @@ function CreateAuthor() {
     setLastName(event.target.value);
   }
 
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
+
   const handleBiographyChange = (event) => {
     setBiography(event.target.value);
   }
+
 
   const handleImageChange = event => {
     const selectedFile = event.target.files[0];
@@ -37,6 +43,7 @@ function CreateAuthor() {
       formData.append('author[first_name]', firstName);
       formData.append('author[last_name]', lastName);
       formData.append('author[biography]', biography);
+      formData.append('author[email]', email);
       formData.append('image', image);
 
     try {
@@ -80,6 +87,16 @@ function CreateAuthor() {
             id="lastName"
             value={lastName}
             onChange={handleLastNameChange}
+            className='form-control'
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
             className='form-control'
           />
         </div>
