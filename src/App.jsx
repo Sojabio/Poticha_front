@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 import { userAtom } from './stores/userAtom';
 import { useEffect } from 'react';
 import Cookies from 'js-cookie';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import NavBar from './components/Navbar'
 
@@ -17,6 +17,7 @@ import Call from './pages/statics/Call';
 import Faq from './pages/statics/Faq';
 import Contact from './pages/statics/Contact';
 import MailSuccess from './pages/statics/Contact/success';
+import LoadScreen from './components/Loadscreen';
 
 
 //dynamic pages
@@ -56,7 +57,6 @@ function App() {
 
   return (
     <div className='globale'>
-      <Router>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home/>} />
@@ -81,9 +81,7 @@ function App() {
             <ProtectedRoute>
               <Dashboard/>
             </ProtectedRoute>}/>
-
         </Routes>
-      </Router>
     </div>
   )
 }
