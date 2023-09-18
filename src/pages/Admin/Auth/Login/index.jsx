@@ -4,7 +4,7 @@ import { userAtom } from '../../../../stores/userAtom';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom'
 import { API_URL } from '../../../../stores/apiUrl';
-
+import './loginstyle.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -52,9 +52,9 @@ function Login() {
   };
 
   return (
-    <div className="body center-form">
-      <Form onSubmit={handleLogin}>
-        <div className="form-title"> Connexion </div>
+    <div className="body center-form login">
+      <Form onSubmit={handleLogin} className='login-form'>
+        <h3 className="form-title"> Connexion </h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           {error && <p>{error}</p>}
           <Form.Control
@@ -85,3 +85,5 @@ function Login() {
 }
 
 export default Login;
+
+

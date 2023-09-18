@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './style.css'
+import './faqstyle.css'
 import chatpascontent from '../../../assets/chatpascontent.png'
 
 const Faq = () => {

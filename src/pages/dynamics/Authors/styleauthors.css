@@ -1,7 +1,6 @@
 .authors {
   height: 100%;
   width: 100%;
-  margin-top: 3.5rem;
   background-color: var(--peach);
   display: flex;
   flex-direction: column;
@@ -110,13 +109,17 @@
   
   
   @media (max-width: 768px) {
+    .authors {
+      margin-left: 38px;
+      margin-right: 5px;
+    }
     .authors-container {
       flex-direction: column;
       align-items: center;
     }
   
     .author-card {
-      width: 90%;
+      width: 85%;
       margin-bottom: 20px;
     }
   }
