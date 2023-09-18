@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 import { userAtom } from './stores/userAtom';
 import { useEffect } from 'react';
 import Cookies from 'js-cookie';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import NavBar from './components/Navbar'
 
