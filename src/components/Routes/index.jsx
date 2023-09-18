@@ -9,18 +9,22 @@ const ProtectedRoute = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const token = Cookies.get('token');
-    const id = Cookies.get('id');
+    const fetchUser = async () => {
+      const token = Cookies.get('token');
+      const id = Cookies.get('id');
 
-    if (token) {
-      setUser({
-        id: id,
-        isLoggedIn: true,
-        token: token,
-      });
-    }
+      if (token) {
+        setUser({
+          id: id,
+          isLoggedIn: true,
+          token: token,
+        });
+      }
 
-    setIsLoading(false);
+      setIsLoading(false);
+    };
+
+    fetchUser();
   }, []);
 
   if (isLoading) {
