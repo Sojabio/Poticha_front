@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 import { userAtom } from './stores/userAtom';
 import { useEffect } from 'react';
 import Cookies from 'js-cookie';
-import { Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import NavBar from './components/Navbar'
 
@@ -17,7 +17,6 @@ import Call from './pages/statics/Call';
 import Faq from './pages/statics/Faq';
 import Contact from './pages/statics/Contact';
 import MailSuccess from './pages/statics/Contact/success';
-import LoadScreen from './components/Loadscreen';
 
 
 //dynamic pages
@@ -57,6 +56,7 @@ function App() {
 
   return (
     <div className='globale'>
+      <Router forceRefresh={true}>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home/>} />
@@ -72,7 +72,6 @@ function App() {
           <Route path="/auteurices" element={<Authors/>} />
           <Route path="/auteurices/:id" element={<Author/>}/>
           <Route path="/login" element={<Login/>} />
-          {/* <Route path="/admin" element={<Dashboard/>}/> */}
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
           <Route path="/updatepost/:id" element={<UpdatePost/>} />
           <Route path="/updateauthor/:id" element={<UpdateAuthor/>} />
@@ -82,6 +81,7 @@ function App() {
               <Dashboard/>
             </ProtectedRoute>}/>
         </Routes>
+      </Router>
     </div>
   )
 }
