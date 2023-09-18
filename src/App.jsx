@@ -16,6 +16,7 @@ import Abo from './pages/statics/Abo';
 import Call from './pages/statics/Call';
 import Faq from './pages/statics/Faq';
 import Contact from './pages/statics/Contact';
+import MailSuccess from './pages/statics/Contact/success';
 
 
 //dynamic pages
@@ -63,6 +64,7 @@ function App() {
           <Route path="/appel" element={<Call/>} />
           <Route path="/faq" element={<Faq/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/mailsuccess" element={<MailSuccess/>} />
           <Route path="/ouvrages" element={<Books/>} />
           <Route path="/ouvrages/:id" element={<Book/>} />
           <Route path="/actus" element={<Infos/>} />
