@@ -1,7 +1,6 @@
 .posts {
     height: 100%;
     width: 100%;
-    margin-top: 3.5rem;
     background-color: var(--peach);
     display: flex;
     flex-direction: column;
@@ -113,7 +112,8 @@
 
   @media (max-width: 1024px) {
     .posts-container {
-      width: 90%;
+      width: 70%;
+      margin-left: 80px;
     }
 
     .post-card {

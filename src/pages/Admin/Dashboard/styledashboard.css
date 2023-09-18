@@ -1,5 +1,5 @@
 .nav-tabs .nav-item {
-    background-color: var(--pink);
+    background-color: var(--pink) !important;
     border-radius: 20px 20px 0 0;
     border: none;
 }
@@ -10,7 +10,7 @@
 
 
 .nav-tabs .nav-item .active {
-    background-color: var(--peach);
+    background-color: var(--peach) !important;
     border-bottom: 0px;
     border-radius: 20px;
 }
@@ -26,5 +26,9 @@
 .tab-content {
     height: 100%;
     width: 100%;
-    background-color: var(--peach);
+    background-color: var(--peach) !important;
+}
+
+.nav-item .nav-link {
+    background-color: var(--pink) !important;
 }

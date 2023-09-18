@@ -6,43 +6,60 @@ import LogoutButton from '../Logout';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import './stylenavbar.css'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight, faHome, faNewspaper, faBook, faFeather, faBell, faBullhorn, faMailBulk, faQuestion, faDesktop} from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+
 
 const NavBar = () => {
   const [userInfo] = useAtom(userAtom);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const renderNavLinks = () => {
+    const navLinks = [
+      { to: '/', icon: faHome, label: 'Accueil' },
+      { to: '/ouvrages', icon: faBook, label: 'Nos Ouvrages' },
+      { to: '/auteurices', icon: faFeather, label: 'Nos auteurices' },
+      { to: '/actus', icon: faNewspaper, label: 'Actualités' },
+      { to: '/abonnement', icon: faBell, label: 'Nos abonnements' },
+      { to: '/appel', icon: faBullhorn, label: 'Appel à Textes' },
+      { to: '/contact', icon: faMailBulk, label: 'Contact' },
+      { to: '/faq', icon: faQuestion, label: 'FAQ' },
+      { to: '/admin', icon: faDesktop, label: 'Espace Admin' },
+    ];
+
+    return navLinks.map((link) => (
+      <Nav.Link
+        key={link.to}
+        as={Link}
+        to={link.to}
+        className={`nav-button ${isExpanded ? 'expanded' : ''}`}
+      >
+        <FontAwesomeIcon icon={link.icon} className={`icon`} />
+        {isExpanded && <span className="nav-label"> {link.label}</span>}
+      </Nav.Link>
+    ));
+  };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className={` nav-side ${isExpanded ? 'nav-expanded' : 'nav-retracted'}`}>
       <Container>
-          <Nav className="me-auto">
-            <NavDropdown title="Menu" id="basic-nav-dropdown" className='dropdown-b'>
-            <NavDropdown.Item as={Link} to="/">Accueil</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/abonnement">L'abonnement</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/appel">
-                L'appel à textes
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/actus">Notre actualité</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/ouvrages">Les ouvrages</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/auteurices">Les auteurices</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/faq">F.A.Q</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/contact">Nous contacter</NavDropdown.Item>
-              <NavDropdown.Divider />
-              {userInfo.isLoggedIn ? (
-                <>
-                  <NavDropdown.Item as={Link} to="/admin">Espace admin</NavDropdown.Item>
-                  <NavDropdown.Item><LogoutButton /></NavDropdown.Item>
-                </>
-              ) : (
-              <NavDropdown.Item as={Link} to="/login">
-                Espace admin
-              </NavDropdown.Item>
-              )}
-            </NavDropdown>
-          </Nav>
+        <Nav className={`me-auto ${isExpanded ? 'nav-expanded' : 'nav-retracted'}`}>
+          <button onClick={handleToggle} className={`toggle-button ${isExpanded ? 'expanded' : ''}`}>
+          {isExpanded ? <FontAwesomeIcon icon={faArrowLeft} /> : <FontAwesomeIcon icon={faArrowRight} />}
+          </button>
+          {renderNavLinks()}
+        </Nav>
       </Container>
+      
     </Navbar>
   );
-}
+};
 
-export default NavBar
+export default NavBar;
