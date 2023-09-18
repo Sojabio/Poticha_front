@@ -2,6 +2,11 @@ import { useAtom } from 'jotai';
 import { userAtom } from '../../stores/userAtom';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPowerOff} from '@fortawesome/free-solid-svg-icons';
+import './logoutstyle.css';
+
+
 
 function LogoutButton() {
   const [, setUser] = useAtom(userAtom);
@@ -20,7 +25,9 @@ function LogoutButton() {
   };
 
   return (
-    <button onClick={handleLogout} className='LogoutButton'>Déconnexion</button>
+    <div className='logout'>
+      <button onClick={handleLogout} className='LogoutButton'><FontAwesomeIcon icon={faPowerOff} /></button>
+    </div>
   );
 }
 
