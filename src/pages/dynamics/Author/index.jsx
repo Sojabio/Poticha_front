@@ -5,6 +5,7 @@ import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
 import chatvollant from '../../../assets/chatvollant.png'
 import StyledContainer from '../../../components/ImageContainer/index.jsx';
+
 import './style.css';
 
 const Author = () => {
@@ -47,6 +48,9 @@ const Author = () => {
           <p className="article-email">Email : {author.email}</p>
           <a className="article-email" href={`mailto:${author.email}`}>contacter {author.first_name} {author.last_name}
           </a>
+          <div>
+          <Link to={`/auteurices/${author.id}/contact`}>Formulaire de contact</Link>
+          </div>
           <div className="article-books">
             Ouvrages publiés chez LePôticha :
             <ul>

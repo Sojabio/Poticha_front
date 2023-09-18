@@ -24,6 +24,7 @@ import Books from './pages/dynamics/Books';
 import Book from './pages/dynamics/Book';
 import Authors from './pages/dynamics/Authors';
 import Author from './pages/dynamics/Author';
+import ContactAuthor from './pages/dynamics/Author/contactAuthor';
 import Infos from './pages/dynamics/Infos';
 import Info from './pages/dynamics/Info';
 
@@ -36,6 +37,9 @@ import UpdateAuthor from './components/Admin/Authors/update';
 import UpdateBook from './components/Admin/Books/update';
 import ProtectedRoute from './components/Routes';
 
+
+// à supprimer
+import IndexTest from './pages/statics/Contact/indextest';
 
 function App() {
   const [user, setUser] = useAtom(userAtom);
@@ -56,7 +60,7 @@ function App() {
 
   return (
     <div className='globale'>
-      <Router forceRefresh={true}>
+      <Router>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home/>} />
@@ -64,6 +68,7 @@ function App() {
           <Route path="/appel" element={<Call/>} />
           <Route path="/faq" element={<Faq/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/contactest" element={<IndexTest/>} /> 
           <Route path="/mailsuccess" element={<MailSuccess/>} />
           <Route path="/ouvrages" element={<Books/>} />
           <Route path="/ouvrages/:id" element={<Book/>} />
@@ -71,6 +76,7 @@ function App() {
           <Route path="/actus/:id" element={<Info/>} />
           <Route path="/auteurices" element={<Authors/>} />
           <Route path="/auteurices/:id" element={<Author/>}/>
+          <Route path="/auteurices/:id/contact" element={<ContactAuthor/>}/>
           <Route path="/login" element={<Login/>} />
           <Route path="/logoutsuccess" element={<LogoutSuccess/>} />
           <Route path="/updatepost/:id" element={<UpdatePost/>} />

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_URL } from "../../../stores/apiUrl";
-import { Link } from "react-router-dom";
+import { API_URL } from "../../stores/apiUrl";
 
-export const ContactForm = () => {
+export const ContactFormTest = ({authormail}) => {
   let defaultFields = {
     name: "",
     email: "",
@@ -15,7 +14,6 @@ export const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
-
 
   const newMessage = (formData) => {
     fetch(API_URL + "/contacts", {
@@ -76,16 +74,17 @@ export const ContactForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validForSubmission()) {
-      newMessage(message);
+        const formData = {
+        ...message,
+        recipientEmail: authormail,
+      };
+      newMessage(formData);
       setMessage(defaultFields);
     }
   };
 
   return (
     <section>
-      <>
-      <Link to="/contactest">Test formulaire contact 2</Link>
-      </>
       <div>
         <form onSubmit={handleSubmit}>
           {Object.keys(errors).length > 0 && (
@@ -168,4 +167,4 @@ export const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ContactFormTest;
