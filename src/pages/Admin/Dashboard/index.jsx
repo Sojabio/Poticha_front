@@ -21,33 +21,33 @@ function Dashboard() {
     <Tab
       eventKey="post"
       title="Info"
-      tabClassName="custom-tab" 
+      tabClassName="custom-tab"
     >
       <CreatePost />
     </Tab>
     <Tab
       eventKey="author"
       title="Auteurice"
-      tabClassName="custom-tab" 
+      tabClassName="custom-tab"
     >
       <CreateAuthor />
     </Tab>
     <Tab
       eventKey="book"
       title="Ouvrage"
-      tabClassName="custom-tab" 
+      tabClassName="custom-tab"
     >
       <CreateBook />
     </Tab>
     <Tab
       eventKey="countdown"
       title="Décompte"
-      tabClassName="custom-tab" 
+      tabClassName="custom-tab"
     >
       <UpdateCountdown />
     </Tab>
   </Tabs>
-  
+
   );
 }
 
