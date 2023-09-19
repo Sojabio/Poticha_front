@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../stores/apiUrl";
 
-export const ContactFormTest = ({authormail}) => {
+import './style.css'
+
+export const ContactForm = ({authormail}) => {
   let defaultFields = {
     name: "",
     email: "",
@@ -29,8 +31,7 @@ export const ContactFormTest = ({authormail}) => {
         if (response.ok) {
           return response;
         } else {
-          let error = new Error(errorMessage);
-          throw error;
+          throw new Error('Erreur lors de la requête');
         }
       })
       .then((response) => response.json())
@@ -42,7 +43,7 @@ export const ContactFormTest = ({authormail}) => {
           setSuccess(false);
         }
       })
-      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+      .catch((error) => console.error('Erreur de requête : ', error));
   };
 
   const handleChange = (event) => {
@@ -73,6 +74,12 @@ export const ContactFormTest = ({authormail}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (message && message.phone && message.phone.trim() !== "") {
+      console.log("Bot detected!");
+      return;
+    }
+
     if (validForSubmission()) {
         const formData = {
         ...message,
@@ -158,14 +165,22 @@ export const ContactFormTest = ({authormail}) => {
             </label>
           </div>
           <div>
+            <label className="ohnohoney" for="phone"></label>
+            <input
+              className="ohnohoney"
+              autocomplete="off"
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="Your phone here"/>
+            </div>
             <div>
               <button>Envoyer</button>
             </div>
-          </div>
         </form>
       </div>
     </section>
   );
 };
 
-export default ContactFormTest;
+export default ContactForm;

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 
-import ContactFormTest from "../../../components/ContactForm"
+import ContactForm from "../../../components/ContactForm"
 import './style.css'
 
 const contactAuthor = () => {
@@ -22,7 +22,7 @@ const contactAuthor = () => {
 
   return (
     <div className="author">
-    <ContactFormTest authormail={author.email} />
+    <ContactForm authormail={author.email} />
     </div>
   )
 }
