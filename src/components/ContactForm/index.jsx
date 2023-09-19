@@ -80,6 +80,7 @@ export const ContactFormTest = ({authormail}) => {
       };
       newMessage(formData);
       setMessage(defaultFields);
+      console.log(authormail)
     }
   };
 
