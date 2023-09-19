@@ -37,10 +37,6 @@ import UpdateAuthor from './components/Admin/Authors/update';
 import UpdateBook from './components/Admin/Books/update';
 import ProtectedRoute from './components/Routes';
 
-
-// à supprimer
-import IndexTest from './pages/statics/Contact/indextest';
-
 function App() {
   const [user, setUser] = useAtom(userAtom);
 
@@ -68,7 +64,6 @@ function App() {
           <Route path="/appel" element={<Call/>} />
           <Route path="/faq" element={<Faq/>} />
           <Route path="/contact" element={<Contact/>} />
-          <Route path="/contactest" element={<IndexTest/>} /> 
           <Route path="/mailsuccess" element={<MailSuccess/>} />
           <Route path="/ouvrages" element={<Books/>} />
           <Route path="/ouvrages/:id" element={<Book/>} />
