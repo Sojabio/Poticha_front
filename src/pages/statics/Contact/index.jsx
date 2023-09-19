@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 import { Link } from "react-router-dom";
 
+import './style.css'
+
 export const ContactForm = () => {
   let defaultFields = {
     name: "",
@@ -14,6 +16,7 @@ export const ContactForm = () => {
   const [message, setMessage] = useState(defaultFields);
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
+  const honeypotField = ["phone"];
   const navigate = useNavigate();
 
 
@@ -31,8 +34,7 @@ export const ContactForm = () => {
         if (response.ok) {
           return response;
         } else {
-          let error = new Error(errorMessage);
-          throw error;
+          throw new Error('Erreur lors de la requête');
         }
       })
       .then((response) => response.json())
@@ -44,7 +46,7 @@ export const ContactForm = () => {
           setSuccess(false);
         }
       })
-      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+      .catch((error) => console.error('Erreur de requête : ', error));
   };
 
   const handleChange = (event) => {
@@ -75,6 +77,12 @@ export const ContactForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (message && message.phone && message.phone.trim() !== "") {
+      console.log("Bot detected!");
+      return;
+    }
+
     if (validForSubmission()) {
       newMessage(message);
       setMessage(defaultFields);
@@ -82,7 +90,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section>
+    <section className="center">
       <>
       <Link to="/contactest">Test formulaire contact 2</Link>
       </>
@@ -158,10 +166,18 @@ export const ContactForm = () => {
             </label>
           </div>
           <div>
+          <label className="ohnohoney" for="phone"></label>
+          <input
+            className="ohnohoney"
+            autocomplete="off"
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="Your phone here"/>
+          </div>
             <div>
               <button>Envoyer</button>
             </div>
-          </div>
         </form>
       </div>
     </section>
