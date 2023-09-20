@@ -3,11 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
+import Showdown from 'showdown';
 
 const Info = () => {
   const PostId = useParams().id
   const [post, setPost] = useState('')
   const [userInfo] = useAtom(userAtom);
+  const showdownConverter = new Showdown.Converter();
 
  useEffect(() => {
   const fetchData = async () => {
@@ -42,7 +44,7 @@ return (
       <p>pas d'image disponible</p>
     )}
     <p> {post.title}</p>
-    <p>{post.content}</p>
+    <div dangerouslySetInnerHTML={{ __html: showdownConverter.makeHtml(post.content),}}/>
     <p>posté le {post.created_at}</p>
     <>
     {userInfo.isLoggedIn ? (
