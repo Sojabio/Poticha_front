@@ -22,7 +22,7 @@ const contactAuthor = () => {
 
   return (
     <div className="author">
-    <ContactForm authormail={author.email} />
+    <ContactForm authormail={author.email} authorFirstName={author.first_name} authorLastName={author.last_name} />
     </div>
   )
 }

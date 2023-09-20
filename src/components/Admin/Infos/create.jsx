@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAtom } from 'jotai';
+import DisplayContent from './displayContent';
 import { useNavigate } from 'react-router-dom';
-
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 import './stylecreatepost.css';
@@ -90,6 +90,9 @@ function CreatePost() {
             onChange={handleContentChange}
             className='form-control'
           />
+        </div>
+        <div>
+            <DisplayContent content={content} />
         </div>
         <div className='form-group'>
           <label htmlFor="image">Image :</label>

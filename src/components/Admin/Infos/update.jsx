@@ -3,6 +3,7 @@ import { useAtom } from 'jotai';
 import { useNavigate, useParams} from 'react-router-dom';
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
+import DisplayContent from './displayContent';
 
 function UpdatePost() {
   const [title, setTitle] = useState('');
@@ -58,22 +59,18 @@ function UpdatePost() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const newPost = {
-      post: {
-        title: title || originalData.title,
-        content: content || originalData.content,
-        image: image || originalData.image,
-      }
-    };
+    const formData = new FormData();
+      formData.append('post[title]', title);
+      formData.append('post[content]', content);
+      formData.append('image', image);
 
     try {
       const response = await fetch(API_URL + '/posts/' + postId, {
         method: 'PATCH',
         headers: {
-          'Content-Type': 'application/json',
           Authorization: `${user.token}`,
         },
-        body: JSON.stringify(newPost),
+        body:  formData,
       });
 
       if (response.ok) {
@@ -82,6 +79,10 @@ function UpdatePost() {
 
       } else {
         console.error("Erreur lors de la modification du post");
+        const responseData = await response.json();
+        if (responseData.errors) {
+          setErrors(responseData.errors);
+        }
       }
     } catch (error) {
       console.error("Erreur lors de la modification du post :", error);
@@ -101,7 +102,7 @@ function UpdatePost() {
           </div>
         )}
         <h2>Modifier ce post</h2>
-        <form onSubmit={handleSubmit}>
+        <form encType="multipart/form-data" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="title">Titre :</label>
             <input
@@ -120,6 +121,9 @@ function UpdatePost() {
               value={content}
               onChange={handleContentChange}
             />
+          </div>
+          <div>
+            <DisplayContent content={content} />
           </div>
           <div>
             <label htmlFor="image">image:</label>

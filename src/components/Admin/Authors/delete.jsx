@@ -2,12 +2,21 @@ import { useAtom } from 'jotai'
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 const DestroyAuthor = ({authorId, onDelete}) => {
   const [user] = useAtom(userAtom);
   const AuthorId = authorId
+  const navigate = useNavigate();
+
 
   const handleDestroy = async () => {
+    const shouldDelete = window.confirm("Confirmer la suppression?");
+
+    if (!shouldDelete) {
+      return;
+    }
+
     try {
       const response = await fetch(API_URL + '/authors/' + AuthorId, {
         method: 'DELETE',
@@ -19,7 +28,8 @@ const DestroyAuthor = ({authorId, onDelete}) => {
 
       if (response.ok) {
         console.log('Author deleted successfully');
-        onDelete();
+        navigate(`/auteurices`)
+
       } else {
         console.log('Failed to delete author');
       }
@@ -30,7 +40,7 @@ const DestroyAuthor = ({authorId, onDelete}) => {
 
 
   return (
-    <button onClick={handleDestroy} className='delete-button'>Supprimer ce-tte auteurice</button>
+    <button onClick={handleDestroy} className='delete-button'>Supprimer l'auteurice</button>
   )
 }
 

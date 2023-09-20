@@ -20,7 +20,9 @@
     "react-bootstrap": "^2.8.0",
     "react-datetime-picker": "^5.5.1",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
     "react-router-dom": "^6.15.0",
+    "react-showdown": "^2.3.1",
     "styled-components": "^6.0.8"
   },
   "devDependencies": {
