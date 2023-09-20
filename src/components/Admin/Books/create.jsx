@@ -10,11 +10,13 @@ function CreateBook() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [ISBN, setISBN] = useState('');
+  const [issueDate, setIssueDate] = useState('');
   const [season, setSeason] = useState('');
   const [pages, setPages] = useState('');
   const [authors, setAuthors] = useState([]);
   const [selectedAuthor, setSelectedAuthor] = useState('');
   const [user] = useAtom(userAtom);
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
   const handleTitleChange = (event) => {
@@ -27,6 +29,10 @@ function CreateBook() {
 
   const handleISBNChange = (event) => {
     setISBN(event.target.value);
+  }
+
+  const handleIssueDateChange = (event) => {
+    setIssueDate(event.target.value);
   }
 
   const handleSeasonChange = (event) => {
@@ -49,6 +55,7 @@ function CreateBook() {
         title: title,
         description: description,
         ISBN: ISBN,
+        issue_date: issueDate,
         season: season,
         pages: pages,
         author_id: selectedAuthor,
@@ -66,10 +73,15 @@ function CreateBook() {
       });
 
       if (response.ok) {
+        setErrors([]);
         console.log("L'ouvrage a été ajouté avec succès");
         navigate("/ouvrages")
       } else {
         console.error("Erreur lors de l'ajout de l'ouvrage");
+        const responseData = await response.json();
+        if (responseData.errors) {
+          setErrors(responseData.errors);
+        }
       }
     } catch (error) {
       console.error("Erreur lors de l'ajout de l'ouvrage:", error);
@@ -97,6 +109,15 @@ function CreateBook() {
   return (
     <div className='create-book'>
       <form onSubmit={handleSubmit} className='book-form'>
+      {errors.length > 0 && (
+        <div className="error-messages">
+          <ul>
+            {errors.map((error, index) => (
+              <li key={index}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       <h3> Ajouter un ouvrage </h3>
         <div className='form-group'>
           <label htmlFor="title">Titre :</label>
@@ -138,6 +159,16 @@ function CreateBook() {
           />
         </div>
         <div className='form-group'>
+          <label htmlFor="issueDate">Date de parution :</label>
+          <input
+            type="datetime-local"
+            id="issueDate"
+            value={issueDate}
+            onChange={handleIssueDateChange}
+            className='form-control'
+          />
+        </div>
+        <div className='form-group'>
           <label htmlFor="season">Saison :</label>
           <input
             type="number"
@@ -163,7 +194,6 @@ function CreateBook() {
             ))}
           </select>
         </div>
-
         <button type="submit" className='submit-button'>
           Créer l'ouvrage
         </button>

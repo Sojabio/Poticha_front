@@ -9,12 +9,14 @@ function UpdateBook() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [ISBN, setISBN] = useState('');
+  const [issueDate, setIssueDate] = useState('');
   const [season, setSeason] = useState('');
   const [pages, setPages] = useState('');
   const [authors, setAuthors] = useState([]);
   const [selectedAuthor, setSelectedAuthor] = useState('');
   const [user] = useAtom(userAtom);
   const [originalData, setOriginalData] = useState({});
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const bookId = useParams().id;
 
@@ -33,6 +35,7 @@ function UpdateBook() {
           setTitle(jsonData.title|| '');
           setDescription(jsonData.description|| '');
           setISBN(jsonData.ISBN|| '');
+          setIssueDate(jsonData.IssueDate || '');
           setSeason(jsonData.season|| '');
           setPages(jsonData.pages|| '');
           setSelectedAuthor(jsonData.author_id|| '');
@@ -76,6 +79,10 @@ function UpdateBook() {
     setISBN(event.target.value);
   }
 
+  const handleIssueDateChange = (event) => {
+    setIssueDate(event.target.value);
+  }
+
   const handleSeasonChange = (event) => {
     setSeason(event.target.value);
   }
@@ -96,6 +103,7 @@ function UpdateBook() {
         title: title || originalData.title,
         description: description || originalData.description,
         ISBN: ISBN || originalData.ISBN,
+        issue_date: issueDate || originalData.issue_date,
         season: season || originalData.season,
         pages: pages || originalData.pages,
         author_id: selectedAuthor || originalData.author_id
@@ -118,6 +126,10 @@ function UpdateBook() {
 
       } else {
         console.error("Erreur lors de la modification de l'ouvrage");
+        const responseData = await response.json();
+        if (responseData.errors) {
+          setErrors(responseData.errors);
+        }
       }
     } catch (error) {
       console.error("Erreur lors de la modification de l'ouvrage :", error);
@@ -127,11 +139,21 @@ function UpdateBook() {
   return (
     <div className='update'>
       <div className="update-book-container">
+        {errors.length > 0 && (
+          <div className="error-messages">
+            <ul>
+              {errors.map((error, index) => (
+                <li key={index}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <h2 className='update-button'>Modifier cet ouvrage</h2>
         <form className="update-book-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="title">Titre :</label>
             <input
+              placeholder={originalData.title}
               type="text"
               id="title"
               value={title}
@@ -142,6 +164,7 @@ function UpdateBook() {
           <div className="form-group">
             <label htmlFor="description">Description :</label>
             <textarea
+              placeholder={originalData.description}
               id="description"
               value={description}
               onChange={handleDescriptionChange}
@@ -152,6 +175,7 @@ function UpdateBook() {
           <div className="form-group">
             <label htmlFor="ISBN">ISBN :</label>
             <input
+              placeholder={originalData.ISBN}
               type="text"
               id="ISBN"
               value={ISBN}
@@ -162,6 +186,7 @@ function UpdateBook() {
           <div className="form-group">
             <label htmlFor="pages">Nombre de pages :</label>
             <input
+              placeholder={originalData.pages}
               type="number"
               id="pages"
               value={pages}
@@ -169,9 +194,20 @@ function UpdateBook() {
               className="form-control"
             />
           </div>
+          <div className='form-group'>
+            <label htmlFor="issueDate">Date de parution :</label>
+            <input
+              type="datetime-local"
+              id="issueDate"
+              value={issueDate}
+              onChange={handleIssueDateChange}
+              className='form-control'
+            />
+          </div>
           <div className="form-group">
             <label htmlFor="season">Saison :</label>
             <input
+              placeholder={originalData.season}
               type="number"
               id="season"
               value={season}
@@ -197,7 +233,7 @@ function UpdateBook() {
           </div>
           <button type="submit" className="btn btn-primary">Modifier</button>
         </form>
-      </div>  
+      </div>
     </div>
   );
 }

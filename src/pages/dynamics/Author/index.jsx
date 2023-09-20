@@ -46,10 +46,8 @@ const Author = () => {
           </h2>
           <p className="article-description">Biographie : {author.biography}</p>
           <p className="article-email">Email : {author.email}</p>
-          <a className="article-email" href={`mailto:${author.email}`}>contacter {author.first_name} {author.last_name}
-          </a>
           <div>
-          <Link to={`/auteurices/${author.id}/contact`}>Formulaire de contact</Link>
+          <Link to={`/auteurices/${author.id}/contact`}>contacter {author.first_name} {author.last_name}</Link>
           </div>
           <div className="article-books">
             Ouvrages publiés chez LePôticha :

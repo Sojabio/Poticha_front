@@ -5,11 +5,12 @@ import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 
 function UpdatePost() {
-  const [title, setTitle] = useState(undefined);
-  const [content, setContent] = useState(undefined);
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [user] = useAtom(userAtom);
   const [originalData, setOriginalData] = useState([])
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const postId = useParams().id;
 
@@ -28,7 +29,11 @@ function UpdatePost() {
           setTitle(jsonData.title || '');
           setContent(jsonData.content|| '');
         } else {
-          throw new Error('Erreur lors de la requête');
+          console.error('Erreur lors de la requête');
+          const responseData = await response.json();
+          if (responseData.errors) {
+          setErrors(responseData.errors);
+        }
         }
       } catch (error) {
         console.error('Erreur de requête : ', error)
@@ -84,37 +89,48 @@ function UpdatePost() {
   };
 
   return (
-    <div>
-      <h2>Modifier ce post</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Titre :</label>
-          <input
-            placeholder={originalData.title}
-            type="text"
-            id="title"
-            value={title || originalData.title}
-            onChange={handleTitleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="content">Contenu :</label>
-          <textarea
-            placeholder={originalData.content}
-            id="description"
-            value={content || originalData.content}
-            onChange={handleContentChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="image">image:</label>
-          <input
-          type="file"
-          name="image"
-          onChange={handleImageChange} />
-        </div>
-        <button type="submit">Modifier</button>
-      </form>
+    <div className='update'>
+      <div className="update-post-container">
+        {errors.length > 0 && (
+          <div className="error-messages">
+            <ul>
+              {errors.map((error, index) => (
+                <li key={index}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <h2>Modifier ce post</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="title">Titre :</label>
+            <input
+              placeholder={originalData.title}
+              type="text"
+              id="title"
+              value={title}
+              onChange={handleTitleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="content">Contenu :</label>
+            <textarea
+              placeholder={originalData.content}
+              id="description"
+              value={content}
+              onChange={handleContentChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="image">image:</label>
+            <input
+            type="file"
+            name="image"
+            onChange={handleImageChange} />
+          </div>
+          <button type="submit">Modifier</button>
+        </form>
+      </div>
     </div>
   );
 }
