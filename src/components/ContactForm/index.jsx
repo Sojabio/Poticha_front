@@ -16,7 +16,6 @@ export const ContactForm = ({authormail}) => {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
-
   const newMessage = (formData) => {
     fetch(API_URL + "/contacts", {
       method: "POST",
@@ -165,10 +164,10 @@ export const ContactForm = ({authormail}) => {
             </label>
           </div>
           <div>
-            <label className="ohnohoney" for="phone"></label>
+            <label className="ohnohoney" htmlFor="phone"></label>
             <input
               className="ohnohoney"
-              autocomplete="off"
+              autoComplete="off"
               type="text"
               id="phone"
               name="phone"

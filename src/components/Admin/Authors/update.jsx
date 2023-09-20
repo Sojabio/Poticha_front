@@ -5,12 +5,13 @@ import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 
 function UpdateAuthor() {
-  const [firstName, setFirstName] = useState(undefined);
-  const [lastName, setLastName] = useState(undefined);
-  const [biography, setBiography] = useState(undefined);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [biography, setBiography] = useState('');
   const [image, setImage] = useState('');
   const [user] = useAtom(userAtom);
-  const [originalData, setOriginalData] = useState([])
+  const [originalData, setOriginalData] = useState([]);
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const authorId = useParams().id;
 
@@ -84,6 +85,10 @@ function UpdateAuthor() {
 
       } else {
         console.error("Erreur lors de la modification de l'auteurice");
+        const responseData = await response.json();
+        if (responseData.errors) {
+          setErrors(responseData.errors);
+        }
       }
     } catch (error) {
       console.error("Erreur lors de la modification de l'auteurice :", error);
@@ -93,6 +98,15 @@ function UpdateAuthor() {
   return (
     <div className="update">
       <div className="update-author-container">
+      {errors.length > 0 && (
+        <div className="error-messages">
+          <ul>
+            {errors.map((error, index) => (
+              <li key={index}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
         <h2 className="update-button">Modifier cette auteurice</h2>
         <form className="update-author-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -101,7 +115,7 @@ function UpdateAuthor() {
               placeholder={originalData.first_name}
               type="text"
               id="firstName"
-              value={firstName || originalData.first_name}
+              value={firstName}
               onChange={handleFirstNameChange}
               className="form-control"
             />
@@ -112,7 +126,7 @@ function UpdateAuthor() {
               placeholder={originalData.last_name}
               type="text"
               id="lastName"
-              value={lastName || originalData.last_name}
+              value={lastName}
               onChange={handleLastNameChange}
               className="form-control"
             />
@@ -122,7 +136,7 @@ function UpdateAuthor() {
             <textarea
               placeholder={originalData.biography}
               id="biography"
-              value={biography || originalData.biography}
+              value={biography}
               onChange={handleBiographyChange}
               className="form-control"
             />

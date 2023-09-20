@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
 import DestroyBook from "../../../components/Admin/Books/delete";
+import dateWithoutTime from "./dateWithoutTime";
 import './stylebooks.css';
 import chatvollant from '../../../assets/chatvollant.png'
 import StyledContainer from '../../../components/ImageContainer/index.jsx';
-
 
 
 const Books = () => {
@@ -25,7 +25,7 @@ const Books = () => {
       });
       if (response.ok) {
         const jsonData = await response.json();
-        setBooks(jsonData);
+        setBooks(jsonData.reverse());
 
         const authorFetchPromises = jsonData.map(async (book) => {
           try {
@@ -88,7 +88,8 @@ const Books = () => {
               <h4 className="book-title">{book.title}</h4>
               <p className="book-description">{book.description}</p>
               <p className="book-isbn">ISBN : {book.ISBN}</p>
-              <p className="book-release-date">Date de parution : {book.release_date}</p>
+              <p className="book-isbn">saison : {book.season}</p>
+              <p className="book-release-date">Date de parution : {dateWithoutTime(book.issue_date)}</p>
               <div className="book-author">
                 {booksAuthors[book.id] ? (
                   <>
