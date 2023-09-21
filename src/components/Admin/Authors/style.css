@@ -98,9 +98,11 @@
   @media (max-width: 768px) {
 
     .update-author-container {
-        width: 90%;
-        height: 95%;
+        width: 80%;
+        height: 90%;
         max-width: 95%;
+        margin-top: -50px;
+        margin-left: 15%;
     }
     .update-author-form {
       padding: 10px;

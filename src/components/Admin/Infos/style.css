@@ -109,9 +109,20 @@
 
 
 
-@media (max-width:1024px) {
-    .delete-button {
-        max-width: 50%;
-        font-size:0.8rem;
-    }
+@media (max-width: 768px) {
+
+  .update-post-container {
+      width: 80%;
+      height: 90%;
+      max-width: 95%;
+      margin-top: -50px;
+      margin-left: 15%;
+  }
+  .update-post-form {
+    padding: 10px;
+  }
+
+  .update-button {
+    font-size: 20px;
+  }
 }
