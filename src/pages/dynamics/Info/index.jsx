@@ -55,8 +55,8 @@ return (
         )}
       </div>
       <div className="article-details">
-        <p className="article-title"> {post.title}</p>
-        <p className="article-description" dangerouslySetInnerHTML={{ __html: showdownConverter.makeHtml(post.content),}}/>
+        <div className="article-title"> {post.title}</div>
+        <div className="article-description" dangerouslySetInnerHTML={{ __html: showdownConverter.makeHtml(post.content),}}/>
         <p>posté le {formatDate(post.created_at)}</p>
         {userInfo.isLoggedIn && (
           <div className="article-update-link">

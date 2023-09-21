@@ -4,6 +4,7 @@ import { useNavigate, useParams} from 'react-router-dom';
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 import DisplayContent from './displayContent';
+import './style.css'
 
 function UpdatePost() {
   const [title, setTitle] = useState('');
@@ -102,8 +103,8 @@ function UpdatePost() {
           </div>
         )}
         <h2>Modifier ce post</h2>
-        <form encType="multipart/form-data" onSubmit={handleSubmit}>
-          <div>
+        <form encType="multipart/form-data" className="update-post-form" onSubmit={handleSubmit}>
+          <div className="form-group">
             <label htmlFor="title">Titre :</label>
             <input
               placeholder={originalData.title}
@@ -111,28 +112,31 @@ function UpdatePost() {
               id="title"
               value={title}
               onChange={handleTitleChange}
+              className="form-control"
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="content">Contenu :</label>
             <textarea
               placeholder={originalData.content}
               id="description"
               value={content}
               onChange={handleContentChange}
+              className="form-control"
             />
           </div>
-          <div>
+          <div className="display-input">
             <DisplayContent content={content} />
           </div>
-          <div>
-            <label htmlFor="image">image:</label>
+          <div className="form-group">
+            <label htmlFor="image">Image : </label>
             <input
             type="file"
             name="image"
-            onChange={handleImageChange} />
+            onChange={handleImageChange}
+            className="form-control"/>
           </div>
-          <button type="submit">Modifier</button>
+          <button type="submit" className="update-button">Modifier</button>
         </form>
       </div>
     </div>
