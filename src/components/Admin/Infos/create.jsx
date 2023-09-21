@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAtom } from 'jotai';
+import DisplayContent from './displayContent';
 import { useNavigate } from 'react-router-dom';
-
 import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 import './stylecreatepost.css';
@@ -11,6 +11,7 @@ function CreatePost() {
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [user] = useAtom(userAtom);
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
   const handleTitleChange = (event) => {
@@ -48,6 +49,10 @@ function CreatePost() {
         navigate("/actus")
       } else {
         console.error("Erreur lors de l'ajout du post");
+        const responseData = await response.json();
+        if (responseData.errors) {
+          setErrors(responseData.errors);
+        }
       }
     } catch (error) {
       console.error("Erreur lors de l'ajout du post:", error);
@@ -57,6 +62,15 @@ function CreatePost() {
   return (
     <div className='create-post'>
       <form encType="multipart/form-data" onSubmit={handleSubmit} className='post-form'>
+      {errors.length > 0 && (
+        <div className="error-messages">
+          <ul>
+            {errors.map((error, index) => (
+              <li key={index}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       <h3> Ajouter un post</h3>
         <div className='form-group'>
           <label htmlFor="title">Titre :</label>
@@ -76,6 +90,9 @@ function CreatePost() {
             onChange={handleContentChange}
             className='form-control'
           />
+        </div>
+        <div>
+            <DisplayContent content={content} />
         </div>
         <div className='form-group'>
           <label htmlFor="image">Image :</label>

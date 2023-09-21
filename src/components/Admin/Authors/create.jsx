@@ -12,6 +12,7 @@ function CreateAuthor() {
   const [biography, setBiography] = useState('');
   const [image, setImage] = useState('');
   const [user] = useAtom(userAtom);
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
   const handleFirstNameChange = (event) => {
@@ -29,7 +30,6 @@ function CreateAuthor() {
   const handleBiographyChange = (event) => {
     setBiography(event.target.value);
   }
-
 
   const handleImageChange = event => {
     const selectedFile = event.target.files[0];
@@ -60,6 +60,10 @@ function CreateAuthor() {
         navigate("/auteurices")
       } else {
         console.error("Erreur lors de l'ajout de l'auteurice");
+        const responseData = await response.json();
+        if (responseData.errors) {
+          setErrors(responseData.errors);
+        }
       }
     } catch (error) {
       console.error("Erreur lors de l'ajout de l'auteurice:", error);
@@ -69,6 +73,15 @@ function CreateAuthor() {
   return (
     <div className='create-author'>
       <form encType="multipart/form-data" onSubmit={handleSubmit} className='author-form'>
+      {errors.length > 0 && (
+        <div className="error-messages">
+          <ul>
+            {errors.map((error, index) => (
+              <li key={index}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       <h3>Ajouter un-e auteurice</h3>
         <div className='form-group'>
           <label htmlFor="firstName">Prénom :</label>
@@ -101,7 +114,7 @@ function CreateAuthor() {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor="biography">Biography :</label>
+          <label htmlFor="biography">Biographie :</label>
           <textarea
             id="biography"
             value={biography}

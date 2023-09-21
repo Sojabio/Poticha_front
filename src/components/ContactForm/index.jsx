@@ -4,7 +4,7 @@ import { API_URL } from "../../stores/apiUrl";
 
 import './style.css'
 
-export const ContactForm = ({authormail}) => {
+export const ContactForm = ({authormail, authorFirstName, authorLastName}) => {
   let defaultFields = {
     name: "",
     email: "",
@@ -16,7 +16,6 @@ export const ContactForm = ({authormail}) => {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
-
   const newMessage = (formData) => {
     fetch(API_URL + "/contacts", {
       method: "POST",
@@ -92,11 +91,10 @@ export const ContactForm = ({authormail}) => {
   };
 
   return (
-    <section>
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div className='contact-author-container'>
+        <form onSubmit={handleSubmit} className='contact-author-form'>
           {Object.keys(errors).length > 0 && (
-            <div>
+            <div className="error-messages">
               <p><strong>Votre message n'a pas pu être envoyé car vous avez oublié de remplir le(s) champ(s) suivant(s) :</strong></p>
               <ul>
                 {Object.keys(errors).map((field, index) => (
@@ -105,7 +103,12 @@ export const ContactForm = ({authormail}) => {
               </ul>
             </div>
           )}
-          <div>
+          { authorFirstName && authorLastName ? (
+            <h3> Contacter {authorFirstName} {authorLastName}</h3>
+          ) : (
+            <h3> Nous contacter </h3>
+          )}
+          <div className='form-group'>
             <label>
               Nom:
               <div>
@@ -116,11 +119,12 @@ export const ContactForm = ({authormail}) => {
                   id="name"
                   onChange={handleChange}
                   value={message.name}
+                  className='form-control'
                 />
               </div>
             </label>
           </div>
-          <div>
+          <div className='form-group'>
             <label>
               Email:
               <div>
@@ -131,11 +135,12 @@ export const ContactForm = ({authormail}) => {
                   id="email"
                   onChange={handleChange}
                   value={message.email}
+                  className='form-control'
                 />
               </div>
             </label>
           </div>
-          <div>
+          <div className='form-group'>
             <label>
               Objet:
               <div>
@@ -146,11 +151,12 @@ export const ContactForm = ({authormail}) => {
                   id="subject"
                   onChange={handleChange}
                   value={message.subject}
+                  className='form-control'
                 />
               </div>
             </label>
           </div>
-          <div>
+          <div className='form-group'>
             <label>
               Message:
               <div>
@@ -160,26 +166,26 @@ export const ContactForm = ({authormail}) => {
                   id="message"
                   onChange={handleChange}
                   value={message.message}
+                  className='form-control'
                 ></textarea>
               </div>
             </label>
           </div>
           <div>
-            <label className="ohnohoney" for="phone"></label>
+            <label className="ohnohoney" htmlFor="phone"></label>
             <input
               className="ohnohoney"
-              autocomplete="off"
+              autoComplete="off"
               type="text"
               id="phone"
               name="phone"
               placeholder="Your phone here"/>
             </div>
             <div>
-              <button>Envoyer</button>
+              <button type="submit" className="submit-button">Envoyer</button>
             </div>
         </form>
       </div>
-    </section>
   );
 };
 

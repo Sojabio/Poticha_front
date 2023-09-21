@@ -5,6 +5,9 @@ import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
 import chatvollant from '../../../assets/chatvollant.png'
 import StyledContainer from '../../../components/ImageContainer/index.jsx';
+import DestroyAuthor from "../../../components/Admin/Authors/delete";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faBook} from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
 
@@ -41,32 +44,39 @@ const Author = () => {
           )}
         </div>
         <div className="article-details">
-          <h2 className="article-title">
+          <div className="article-title">
             {author.first_name} {author.last_name}
-          </h2>
-          <p className="article-description">Biographie : {author.biography}</p>
-          <p className="article-email">Email : {author.email}</p>
-          <a className="article-email" href={`mailto:${author.email}`}>contacter {author.first_name} {author.last_name}
-          </a>
-          <div>
-          <Link to={`/auteurices/${author.id}/contact`}>Formulaire de contact</Link>
+            <Link to={`/auteurices/${author.id}/contact`} className="contact-link">
+            <FontAwesomeIcon icon={faEnvelope} alt={`contacter ${author.first_name} ${author.last_name}`} />
+            </Link>
           </div>
+          <p className="article-description">{author.biography}</p>
           <div className="article-books">
-            Ouvrages publiés chez LePôticha :
+            {books.length === 1 ? (
+              <p> Publication chez Le Pôticha : </p>
+            ) : (
+              <p> Publications chez Le Pôticha : </p>
+            )}
             <ul>
               {books.map((book) => (
-                <li key={book.id}>
+                <li key={book.id} className="book-title">
                   <Link to={`/ouvrages/${book.id}`} className="article-book-link">
                     {book.title}
+                    <FontAwesomeIcon icon={faBook} alt={`en savoir plus sur ${book.title}`} />
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
+          <div>
+          </div>
           {userInfo.isLoggedIn ? (
+            <>
             <Link to={`/updateauthor/${author.id}`} className="update-author-link">
-              Modifier cet-te auteurice
+              Modifier l'auteurice
             </Link>
+            <DestroyAuthor authorId={author.id}/>
+            </>
           ) : (
             <></>
           )}

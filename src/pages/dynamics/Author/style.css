@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .article-container {
     display: flex;
     flex-direction: column;
@@ -17,72 +18,57 @@
     height: 80%;
     background-color: #f1f1f1;
   }
-  
+
+  .article-image {
+    max-width: auto;
+    max-height: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
   .article-image img {
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
     border-radius: 8px;
   }
-  
+
   .article-title {
     font-size: 24px;
     font-weight: bold;
-    margin: 10px 0;
+    margin-top: 1rem;
   }
-  
+
   .article-description {
     font-size: 16px;
     margin: 10px 0;
   }
-  
+
   .article-isbn {
     font-size: 14px;
     margin: 10px 0;
   }
-  
+
   .article-author {
     font-size: 18px;
     margin: 10px 0;
   }
-  
-  .article-author-link {
-    display: block;
-    text-align: center;
-    background-color: var(--pink);
-    color: #000;
-    padding: 10px 20px; 
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px; 
-    margin-left: 25%;
-    margin-right: 25%;
-    cursor: pointer;
-    box-shadow: 0 4px 5px var(--purple);
-    transition: 0.1s ease;
-  }
 
-  .article-author-link:hover {
-    background-color: var(--purple);
-    transform: translateZ(3px) translateX(-3px) translateY(3px);
-    box-shadow: 0 5px 8px var(--pink);
-  }
-  
   .article-update-link {
     font-size: 16px;
     margin-top: 20px;
   }
-  
-  .update-author-link {
+
+   .update-author-link {
     display: block;
     text-align: center;
     background-color: var(--purple);
     color: #000;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-left: 10%;
     margin-right: 10%;
     cursor: pointer;
@@ -98,20 +84,52 @@
     box-shadow: 0 5px 8px var(--pink);
   }
 
+  .contact-link {
+    color: purple;
+    text-decoration: none;
+  }
+
+  .contact-link:hover{
+    color: var(--pink);
+    transition: 0.3s ease;
+  }
+
+  .article-books {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .article-book-link {
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 1rem;
+  }
+
+  .book-title:hover{
+    color: purple;
+  }
+
   @media (max-width: 768px) {
     .article-container {
       padding: 10px;
       width: 90%;
       margin: auto;
+      height: auto;
     }
 
     .article-details {
         width: 100%;
         height: 100%;
     }
+
     .article-title {
       font-size: 20px;
+      margin-top: 1rem;
     }
-    
+
   }
-  

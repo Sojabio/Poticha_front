@@ -3,6 +3,7 @@ import { API_URL } from "../../../stores/apiUrl";
 import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
+import Showdown from 'showdown';
 import DestroyPost from "../../../components/Admin/Infos/delete";
 import './styleposts.css';
 import chatvollant from '../../../assets/chatvollant.png'
@@ -11,6 +12,7 @@ import chatvollant from '../../../assets/chatvollant.png'
 const Infos = () => {
   const [posts, setPosts] = useState([]);
   const [userInfo] = useAtom(userAtom);
+  const showdownConverter = new Showdown.Converter();
 
     const fetchData = async () => {
       try {
@@ -46,6 +48,7 @@ const Infos = () => {
       return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
+
     return (
       <div className="posts">
         <div className="posts-container">
@@ -58,7 +61,12 @@ const Infos = () => {
               )}
               <div className="post-details">
                 <h4 className="post-title">{post.title}</h4>
-                <p className="post-content">{post.content}</p>
+                <div className="post-content"
+                  dangerouslySetInnerHTML={{
+                  __html: showdownConverter.makeHtml(post.content),
+                }}
+                />
+
                 <p className="post-date">{formatDate(post.created_at)}</p>
                 <Link to={`/actus/${post.id}`} className="learn-more-link">En savoir plus</Link>
                 {userInfo.isLoggedIn && (
@@ -71,7 +79,7 @@ const Infos = () => {
         </div>
       </div>
     );
-    
+
 };
 
 export default Infos;

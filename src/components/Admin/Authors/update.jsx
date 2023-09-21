@@ -5,12 +5,14 @@ import { userAtom } from '../../../stores/userAtom';
 import { API_URL } from '../../../stores/apiUrl';
 
 function UpdateAuthor() {
-  const [firstName, setFirstName] = useState(undefined);
-  const [lastName, setLastName] = useState(undefined);
-  const [biography, setBiography] = useState(undefined);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [biography, setBiography] = useState('');
   const [image, setImage] = useState('');
   const [user] = useAtom(userAtom);
-  const [originalData, setOriginalData] = useState([])
+  const [originalData, setOriginalData] = useState([]);
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const authorId = useParams().id;
 
@@ -28,6 +30,7 @@ function UpdateAuthor() {
           setOriginalData(jsonData);
           setFirstName(jsonData.first_name|| '');
           setLastName(jsonData.last_name|| '');
+          setEmail(jsonData.email ||'');
           setBiography(jsonData.biography|| '');
         } else {
           throw new Error('Erreur lors de la requête');
@@ -47,6 +50,10 @@ function UpdateAuthor() {
     setLastName(event.target.value);
   }
 
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
+
   const handleBiographyChange = (event) => {
     setBiography(event.target.value);
   }
@@ -59,23 +66,20 @@ function UpdateAuthor() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const newAuthor = {
-      author: {
-        first_name: firstName || originalData.first_name,
-        last_name: lastName || originalData.last_name,
-        biography: biography || originalData.biography,
-        image: image || originalData.image,
-      }
-    };
+    const formData = new FormData();
+      formData.append('author[first_name]', firstName);
+      formData.append('author[last_name]', lastName);
+      formData.append('author[biography]', biography);
+      formData.append('author[email]', email);
+      formData.append('image', image);
 
     try {
       const response = await fetch(API_URL + '/authors/' + authorId, {
         method: 'PATCH',
         headers: {
-          'Content-Type': 'application/json',
           Authorization: `${user.token}`,
         },
-        body: JSON.stringify(newAuthor),
+        body: formData,
       });
 
       if (response.ok) {
@@ -84,6 +88,10 @@ function UpdateAuthor() {
 
       } else {
         console.error("Erreur lors de la modification de l'auteurice");
+        const responseData = await response.json();
+        if (responseData.errors) {
+          setErrors(responseData.errors);
+        }
       }
     } catch (error) {
       console.error("Erreur lors de la modification de l'auteurice :", error);
@@ -93,6 +101,15 @@ function UpdateAuthor() {
   return (
     <div className="update">
       <div className="update-author-container">
+      {errors.length > 0 && (
+        <div className="error-messages">
+          <ul>
+            {errors.map((error, index) => (
+              <li key={index}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
         <h2 className="update-button">Modifier cette auteurice</h2>
         <form className="update-author-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -101,7 +118,7 @@ function UpdateAuthor() {
               placeholder={originalData.first_name}
               type="text"
               id="firstName"
-              value={firstName || originalData.first_name}
+              value={firstName}
               onChange={handleFirstNameChange}
               className="form-control"
             />
@@ -112,17 +129,28 @@ function UpdateAuthor() {
               placeholder={originalData.last_name}
               type="text"
               id="lastName"
-              value={lastName || originalData.last_name}
+              value={lastName}
               onChange={handleLastNameChange}
               className="form-control"
             />
           </div>
+          <div className='form-group'>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="text"
+              placeholder={originalData.email}
+              id="email"
+              value={email}
+              onChange={handleEmailChange}
+              className='form-control'
+            />
+          </div>
           <div className="form-group">
-            <label htmlFor="biography">Biography :</label>
+            <label htmlFor="biography">Biographie :</label>
             <textarea
               placeholder={originalData.biography}
               id="biography"
-              value={biography || originalData.biography}
+              value={biography}
               onChange={handleBiographyChange}
               className="form-control"
             />
