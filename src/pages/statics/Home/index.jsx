@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './homepagestyle.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Countdown from '../../../components/Countdown/Countdown';
 import Chatvollant from '../../../assets/chatvollant.png';
 import Chatpascontent from '../../../assets/chatpascontent.png';
 import Fondpoticha from '../../../assets/fondpoticha.png'
-
 
 const HomePage = () => {
   return (
@@ -15,7 +15,7 @@ const HomePage = () => {
           <Countdown />
         </div>
         <h1 className="main-title">Le Pôticha</h1>
-        <h3 className='main-subtitle'> Le théatre dans votre boite aux lettres</h3>
+        <h3 className='main-subtitle'> Le théatre dans votre boîte aux lettres</h3>
         <img src={Chatpascontent} alt="Chat noir pas content" className='hungry-cat'/>
         <img src={Chatvollant} alt="Chat vollant avec des livres ballons" className='flying-cat'/>
       </div>
@@ -28,7 +28,9 @@ const HomePage = () => {
               alt="Première image"
             />
             <h3 className='cta-carousel' id='lire-cta'>Envie de lire ?</h3>
-            <button className='button-carousel' id='lire-btn'>Nos abonnements</button>
+            <Link to="/abonnement">
+              <button className='button-carousel' id='lire-btn'>Nos abonnements</button>
+            </Link>
           </Carousel.Item>
           <Carousel.Item>
             <img
@@ -37,7 +39,9 @@ const HomePage = () => {
               alt="Deuxième image"
               />
             <h3 className='cta-carousel' id='lire-cta'>Envie d'écrire ?</h3>
-            <button className='button-carousel' id='lire-btn'>Notre appel à textes</button>
+            <Link to="/appel">
+              <button className='button-carousel' id='lire-btn'>Notre appel à textes</button>
+            </Link>
           </Carousel.Item>
           <Carousel.Item>
            <img
@@ -46,7 +50,9 @@ const HomePage = () => {
               alt="Troisième image"
             />
             <h3 className='cta-carousel'id='rien-cta'>Envie de nous rencontrer ?</h3>
-            <button className='button-carousel' id='rien-btn'>Notre actualité</button>
+            <Link to="/actus">
+              <button className='button-carousel' id='rien-btn'>Notre actualité</button>
+            </Link>
           </Carousel.Item>
         </Carousel>
       </div>
