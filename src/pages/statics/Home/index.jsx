@@ -1,43 +1,58 @@
-import React from 'react'
-import './style.css'
-import chatvollant from '../../../assets/chatvollant.png'
-import chatpascontent from '../../../assets/chatpascontent.png'
-import Countdown from '../../../components/Countdown/Countdown'
+import React from 'react';
+import './homepagestyle.css';
+import { Carousel } from 'react-bootstrap';
+import Countdown from '../../../components/Countdown/Countdown';
+import Chatvollant from '../../../assets/chatvollant.png';
+import Chatpascontent from '../../../assets/chatpascontent.png';
 
-const Home = () => {
+
+const HomePage = () => {
   return (
-    <div className='homepage'>
-      <section className='banner'>
-        <div className='titles'>
-          <h1 className='main-title'> Le Pôticha</h1>
-          <h3 className='main-subtitle'> La maison d'édition de théâtre libre </h3>
+    <div className="homepage">
+      <div className="top">
+        <div className='countdown'>
+          <Countdown />
         </div>
-        <div className='CTA'>
-            <Countdown />
-        </div>
-      </section>
-      <section className='middle-stripe'>
-        <h3>Du théatre engagé</h3>
-        <h3>tous les mois</h3>
-        <h3>dans ta boîte aux lettres</h3>
-      </section>
-      <section className='bottom-stripe'>
-        <img src={chatvollant} alt="chat vollant avec des ballons livre" className='chatvollant'></img>
-        <div className='sub_link'>
-          <h3> Envie de lire ?</h3>
-          <button href='#'>Nos abonnements</button>
-        </div>
-        <div className='texts_link'>
-          <h3> Envie d'écrire ?</h3>
-          <button href='#'>Notre appel à textes</button>
-        </div>
-        <div className='suggests_link'>
-          <h3> Envie de rien ?</h3>
-          <button href='#'>Nos suggestions</button>
-        </div>
-      </section>
+        <img src={Chatpascontent} alt="Chat noir pas content" className='hungry-cat'/>
+        <h1 className="main-title">Le Pôticha</h1>
+        <h3 className='main-subtitle'> Le théatre dans votre boite aux lettres</h3>
+      </div>
+      <div className="carousel">
+        <Carousel className='carousel-part'>
+          <Carousel.Item>
+            <img
+              className="d-block w-100 carousel-img"
+              src='/src/assets/images/fondpoticha.png'
+              alt="Première image"
+            />
+            <h3 className='cta-carousel'>Envie d'écrire ?</h3>
+            <button className='button-carousel'>Notre appel à textes</button>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100 carousel-img"
+              src='/src/assets/images/fondpoticha.png'
+              alt="Deuxième image"
+            />
+            <h3 className='cta-carousel' id='lire-cta'>Envie de lire ?</h3>
+            <button className='button-carousel' id='lire-btn'>Nos abonnements</button>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100 carousel-img"
+              src='/src/assets/images/fondpoticha.png'
+              alt="Deuxième image"
+            />
+            <h3 className='cta-carousel'id='rien-cta'>Envie de rien ?</h3>
+            <button className='button-carousel' id='rien-btn'>Appelle THP</button>
+          </Carousel.Item>
+        </Carousel>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default HomePage;
+
+
+

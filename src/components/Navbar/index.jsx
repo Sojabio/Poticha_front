@@ -58,7 +58,6 @@ const NavBar = () => {
           {userInfo.isLoggedIn && <LogoutButton />} 
         </Nav>
       </Container>
-      
     </Navbar>
   );
 };

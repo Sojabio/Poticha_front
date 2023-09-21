@@ -1,49 +1,206 @@
 .countdown-open {
-  margin-left: 70vw;
+  position: fixed;
+  margin-bottom: 8%;
   display: flex;
-  position: relative;
-  top:-10rem;
-  left: -13rem;
-  width: 23.5rem;
-  font-size: 25px;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .countdown-subtitle {
-  margin-left: 70vw;
-  display: flex;
-  position: relative;
-  top:-10rem;
-  left: -13rem;
-  width: 25rem;
   font-size: 1.5rem;
-  justify-content: center;
-  align-items: center;
 }
 
-.countdown-closed {
-  margin-left: 70vw;
+.cta-buttons {
   display: flex;
+  flex-direction: row;
+  position: fixed;
+  margin-top: 5%;
+  gap: 20px;
+}
+
+.cta-button {
+  display: block;
+  min-width: 60%;
+  text-align: center;
+  background-color: var(--pink);
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 9px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  margin: -20px 0 20px 0;
+  cursor: pointer;
+  box-shadow: 0 4px 5px var(--blue);
+  transition: 0.1s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--peach);
+  box-shadow: 0 5px 8px var(--pink);
+}
+
+
+.show-counter .countdown {
+  width: 150px;
+  margin: 0 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.show-counter .countdown {
   position: relative;
-  top:-9rem;
-  left: -13rem;
-  width: 23.5rem;
-  height: 6.5rem;
-  font-size: 25px;
-  justify-content: center;
-  align-items: center;
+  z-index: 1;
 }
 
 .show-counter {
   display: flex;
+  position: fixed;
+  top: 5%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  padding: 0.5rem;
-  text-decoration: none;
-  color: #000;
+  white-space: nowrap; 
+  overflow: hidden; 
+  margin-top: 1rem; 
 }
 
+.content-timer {
+  display: flex;
+  position: fixed;
+  top:3%;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  font-weight: 700;
+}
+
+.content-timer p {
+  font-size: 1.25rem;
+}
+
+
+
+
+@media (max-width : 768px) {
+  .countdown {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .countdown-open,
+  .countdown-closed {
+    margin-bottom: 20px;
+  }
+  .show-counter .countdown {
+    width: 100px;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0;
+
+  } 
+
+  .show-counter {
+    position: fixed;
+    top: 10px;
+    left: 39%;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    margin: 0;
+  }
+  .content-timer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 7%;
+    width: 100%;
+    background-color: transparent;
+  }
+  .countdown-subtitle {
+    width: 30%;
+    font-size: 18px;
+    margin-top: 3.5rem;
+    font-size: 14px;
+    font-weight: 500;
+    position: fixed;
+    right: 34%;
+    top: 6%;
+  }
+
+  
+  .cta-button {
+    background-color: var(--pink);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 8.5rem;
+    position: fixed;
+    top:11%;
+    right: 18%;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width : 880px) {
+  .countdown {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .countdown-open,
+  .countdown-closed {
+    margin-bottom: 20px;
+  }
+  .show-counter .countdown {
+    width: 100px;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0;
+
+  } 
+
+  .show-counter {
+    position: fixed;
+    top: 10px;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    margin: 0;
+  }
+  .content-timer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: fixed;
+    top: 7%;
+    width: 100%;
+    background-color: transparent;
+  }
+  .countdown-subtitle {
+    font-size: 18px;
+    margin-top: 3.5rem;
+    margin-left:60px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .cta-button {
+    background-color: var(--pink);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 8.5rem;
+    height: 2.5rem;
+  }
+}
