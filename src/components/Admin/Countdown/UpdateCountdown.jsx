@@ -96,12 +96,12 @@ function UpdateCountdown() {
 
   return (
     <div className='countdown-form'>
-      <h3> Paramêtrer le timer d'abonnement</h3>
+      <h3> Paramétrer le décompte</h3>
       <form onSubmit={handleSubmit}>
         {!isOpen ? (
           <>
           <div className='form-group'>
-            <label htmlFor="startDate">date de début:</label>
+            <label htmlFor="startDate">date de début : </label>
             <input
               type="datetime-local"
               id="startDate"
@@ -110,7 +110,7 @@ function UpdateCountdown() {
             />
           </div>
           <div className='form-group'>
-          <label htmlFor="endDate">date de fin:</label>
+          <label htmlFor="endDate">date de fin : </label>
           <input
             type="datetime-local"
             id="endDate"
