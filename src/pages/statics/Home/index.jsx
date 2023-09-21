@@ -22,7 +22,7 @@ const HomePage = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src='/src/assets/images/fondpoticha.png'
+              src='/src/assets/fondpoticha.png'
               alt="Première image"
             />
             <h3 className='cta-carousel'>Envie d'écrire ?</h3>
@@ -31,7 +31,7 @@ const HomePage = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src='/src/assets/images/fondpoticha.png'
+              src='/src/assets/fondpoticha.png'
               alt="Deuxième image"
             />
             <h3 className='cta-carousel' id='lire-cta'>Envie de lire ?</h3>
@@ -40,7 +40,7 @@ const HomePage = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src='/src/assets/images/fondpoticha.png'
+              src='/src/assets/fondpoticha.png'
               alt="Deuxième image"
             />
             <h3 className='cta-carousel'id='rien-cta'>Envie de rien ?</h3>
