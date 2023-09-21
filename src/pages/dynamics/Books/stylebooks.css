@@ -16,8 +16,10 @@
     padding-top: 25px;
     padding-bottom: 25px;
     background-color: var(--peach);
+    width:90%;
+    margin: 0 auto;
   }
-  
+
   .book-card {
     display: flex;
     flex-direction: column;
@@ -30,7 +32,19 @@
     max-width: 300px;
     width: 100%;
   }
-  
+
+  .book-card:hover {
+    background-color: var(--purple);
+    box-shadow: var(--purple);
+    transition: 0.2s ease;
+    transform: translateZ(3px) translateX(-3px) translateY(3px);
+  }
+
+  .book-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .book-image-container {
     max-width: 90%;
     max-height: 90%;
@@ -39,7 +53,7 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .book-image-container img {
     max-width: 75%;
     max-height: 75%;
@@ -48,10 +62,10 @@
   }
 
   .book-title {
-    font-size: 1.2rem;
     margin-bottom: 10px;
+    font-weight: bold;
   }
-  
+
   .book-description {
     margin-bottom: 10px;
     max-height: 6em;
@@ -59,54 +73,32 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
+
   .book-isbn {
     margin-bottom: 10px;
   }
-  
+
   .book-release-date {
     font-style: italic;
     margin-bottom: 10px;
   }
-  
+
   .book-author {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .author-name {
-    font-weight: bold;
-  }
-  
-  .learn-more-link {
-    display: block;
-    min-width: 60%;
-    text-align: center;
-    background-color: var(--pink);
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 10px auto 20px auto;
-    cursor: pointer;
-    box-shadow: 0 4px 5px var(--purple);
-    transition: 0.1s ease;
+    color: purple;
+    font-size: 1rem;
   }
 
-  .learn-more-link:hover {
-    background-color: var(--purple);
-    transform: translateZ(3px) translateX(-3px) translateY(3px);
-    box-shadow: 0 5px 8px var(--pink);
-  }
 
-  
-  
   .author-not-available {
     color: #ff0000;
   }
-  
+
 
   @media (max-width: 768px) {
     .books {
@@ -117,7 +109,7 @@
       align-items: center;
       margin-bottom: 35px;
     }
-  
+
     .book-card {
       width: 90%;
       margin-bottom: 20px;

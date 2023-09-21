@@ -95,7 +95,7 @@ function CreatePost() {
             <DisplayContent content={content} />
         </div>
         <div className='form-group'>
-          <label htmlFor="image">Image :</label>
+          <label htmlFor="image">Image : </label>
           <input
             type="file"
             name="image"
