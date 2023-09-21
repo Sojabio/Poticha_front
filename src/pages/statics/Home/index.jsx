@@ -1,6 +1,6 @@
 import React from 'react';
 import './homepagestyle.css';
-import { Carousel } from 'react-bootstrap';
+import Carousel from 'react-bootstrap/Carousel';
 import Countdown from '../../../components/Countdown/Countdown';
 import Chatvollant from '../../../assets/chatvollant.png';
 import Chatpascontent from '../../../assets/chatpascontent.png';
@@ -53,6 +53,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-
-
