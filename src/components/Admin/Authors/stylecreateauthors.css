@@ -17,7 +17,7 @@
 }
 
 .author-form h3 {
-    margin-left: 33%;
+    margin-left: 0%;
 }
 
 .form-group {
@@ -47,3 +47,12 @@
     box-shadow: 0 5px 8px var(--peach);
 }
 
+@media (max-width:768px) {
+    .author-form {
+        height: 90%;
+        width: 75%;
+        min-width: 320px;
+        margin-top: 20%;
+        margin-left: 13%;
+    }
+}
