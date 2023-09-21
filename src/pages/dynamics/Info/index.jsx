@@ -3,7 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 import { useAtom } from "jotai";
 import { userAtom } from "../../../stores/userAtom";
+import DestroyPost from "../../../components/Admin/Infos/delete";
+import formatDate from "../../../components/Admin/Countdown/convertDate";
 import Showdown from 'showdown';
+import StyledContainer from '../../../components/ImageContainer/index.jsx';
+import chatvollant from '../../../assets/chatvollant.png';
+
+import './style.css'
 
 const Info = () => {
   const PostId = useParams().id
@@ -37,25 +43,30 @@ const Info = () => {
 
 
 return (
-  <div>
-    {post.image ? (
-      <img src={post.image} alt={post.title} />
-    ) : (
-      <p>pas d'image disponible</p>
-    )}
-    <p> {post.title}</p>
-    <div dangerouslySetInnerHTML={{ __html: showdownConverter.makeHtml(post.content),}}/>
-    <p>posté le {post.created_at}</p>
-    <>
-    {userInfo.isLoggedIn ? (
-    <Link to={`/updatepost/${post.id}`}>Modifier ce post</Link>
-    ) : (
-      <>
-      </>
-    ) }
-    </>
+  <div className="article">
+    <div className="article-container">
+      <div className="article-image">
+        {post.image ? (
+          <img src={post.image} alt={post.title} />
+        ) : (
+          <StyledContainer>
+          <img src={chatvollant} alt={`Chat qui vole grace a des ballons livres`} />
+        </StyledContainer>
+        )}
+      </div>
+      <div className="article-details">
+        <p className="article-title"> {post.title}</p>
+        <p className="article-description" dangerouslySetInnerHTML={{ __html: showdownConverter.makeHtml(post.content),}}/>
+        <p>posté le {formatDate(post.created_at)}</p>
+        {userInfo.isLoggedIn && (
+          <div className="article-update-link">
+            <Link to={`/updatepost/${post.id}`} className="update-article-link">Modifier ce post</Link>
+            <DestroyPost postId={post.id} />
+          </div>
+        )}
+      </div>
+    </div>
   </div>
-)
-}
+)}
 
 export default Info

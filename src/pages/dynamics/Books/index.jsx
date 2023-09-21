@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { API_URL } from "../../../stores/apiUrl";
 import { useState, useEffect } from "react";
-import { useAtom } from "jotai";
-import { userAtom } from "../../../stores/userAtom";
 import DestroyBook from "../../../components/Admin/Books/delete";
 import dateWithoutTime from "./dateWithoutTime";
 import './stylebooks.css';
@@ -13,7 +11,7 @@ import StyledContainer from '../../../components/ImageContainer/index.jsx';
 const Books = () => {
   const [books, setBooks] = useState([]);
   const [booksAuthors, setBooksAuthors] = useState({});
-  const [userInfo] = useAtom(userAtom);
+
 
   const fetchData = async () => {
     try {
@@ -72,44 +70,36 @@ const Books = () => {
     fetchData();
   }, []);
 
-  const handleBooksDeleted = async () => {
-    await fetchData();
-  };
 
   return (
     <div className="books">
       <div className="library">
         {books.map((book) => (
-          <div key={book.id} className="book-card">
-            <StyledContainer>
-              <img src={chatvollant} alt={`Image de ${book.title}`} />
-            </StyledContainer>
-            <div className="book-details">
-              <h4 className="book-title">{book.title}</h4>
-              <p className="book-description">{book.description}</p>
-              <p className="book-isbn">ISBN : {book.ISBN}</p>
-              <p className="book-isbn">saison : {book.season}</p>
-              <p className="book-release-date">Date de parution : {dateWithoutTime(book.issue_date)}</p>
-              <div className="book-author">
-                {booksAuthors[book.id] ? (
-                  <>
-                    <p className="author-name">
-                      {booksAuthors[book.id].first_name}{" "}
-                      {booksAuthors[book.id].last_name}
-                    </p>
-                  </>
-                ) : (
-                  <p className="author-not-available">Auteurice non disponible</p>
-                )}
+          <Link key={book.id} to={`/ouvrages/${book.id}`} className="book-card-link">
+            <div className="book-card">
+              <StyledContainer>
+                <img src={chatvollant} alt={`Image de ${book.title}`} />
+              </StyledContainer>
+              <div className="book-details">
+                <h4 className="book-title">{book.title}</h4>
+                <div className="book-author">
+                  {booksAuthors[book.id] ? (
+                    <>
+                      <p className="author-name">
+                        {booksAuthors[book.id].first_name}{" "}
+                        {booksAuthors[book.id].last_name}
+                      </p>
+                    </>
+                  ) : (
+                    <p className="author-not-available">Auteurice non disponible</p>
+                  )}
+                </div>
+                <p className="book-description">{book.description}</p>
+                <p className="book-isbn">saison : {book.season}</p>
+                <p className="book-release-date">Date de parution : {dateWithoutTime(book.issue_date)}</p>
               </div>
-            <Link to={`/ouvrages/${book.id}`} className="learn-more-link">En savoir plus</Link>
             </div>
-            {userInfo.isLoggedIn ? (
-              <DestroyBook bookId={book.id} onDelete={handleBooksDeleted} />
-            ) : (
-              <></>
-            )}
-          </div>
+          </Link>
         ))}
       </div>
     </div>
