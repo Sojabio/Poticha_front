@@ -16,6 +16,8 @@
     padding-top: 25px;
     padding-bottom: 25px;
     background-color: var(--peach);
+    width:90%;
+    margin: 0 auto;
   }
 
   .author-card {
