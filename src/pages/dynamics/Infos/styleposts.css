@@ -14,10 +14,10 @@
     width: 50%;
     margin: auto;
     margin-top: 20px;
-    gap: 20px; 
+    gap: 20px;
     padding: 20px;
   }
-  
+
   .post-card {
     display: flex;
     flex-direction: column;
@@ -27,60 +27,48 @@
     padding: 20px;
   }
 
+  .post-card:hover{
+    background-color: var(--purple);
+    box-shadow: var(--purple);
+    transition: 0.2s ease;
+    transform: translateZ(3px) translateX(-3px) translateY(3px);
+  }
+
   .post-card img {
     width: 25%;
     height: auto;
     margin: auto;
   }
-  
+
   .post-image {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
   }
-  
+
   .post-title {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 10px;
   }
-  
+
   .post-content {
     margin-bottom: 10px;
     font-size: 1rem;
     line-height: 1.5;
   }
-  
+
   .post-date {
     font-style: italic;
     margin-bottom: 10px;
   }
-  
-  .learn-more-link {
-    display: block;
-    text-align: center;
-    background-color: var(--pink);
-    border: 3px solid var(--peach);
-    color: #000;
-    padding: 10px 20px; 
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 10px 35% auto 20%;
-    cursor: pointer;
-    box-shadow: 0 4px 5px var(--purple);
-    transition: 0.1s ease;
-  }
-  
-  .learn-more-link:hover {
-    background-color: var(--purple);
-  }
-  
+
+
   .divider {
     margin-top: 20px;
     border: 1px solid #ddd;
   }
-  
+
 
   @media (max-width: 768px) {
     .posts-container {
@@ -92,19 +80,19 @@
       height: auto;
     }
     .post-title {
-      font-size: 1rem; 
+      font-size: 1rem;
     }
-  
+
     .post-content {
-      font-size: 0.9rem; 
+      font-size: 0.9rem;
     }
-  
+
     .post-date {
-      font-size: 0.8rem; 
+      font-size: 0.8rem;
     }
-  
+
     .learn-more-link {
-      font-size: 0.9rem; 
+      font-size: 0.9rem;
       width: 70%;
       margin: auto;
     }

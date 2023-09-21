@@ -4,14 +4,14 @@ import { API_URL } from '../../../stores/apiUrl';
 import './style.css';
 import { useNavigate } from 'react-router-dom';
 
-const DestroyAuthor = ({authorId, onDelete}) => {
+const DestroyAuthor = ({authorId}) => {
   const [user] = useAtom(userAtom);
   const AuthorId = authorId
   const navigate = useNavigate();
 
 
   const handleDestroy = async () => {
-    const shouldDelete = window.confirm("Confirmer la suppression?");
+    const shouldDelete = window.confirm("Confirmer la suppression ?");
 
     if (!shouldDelete) {
       return;
