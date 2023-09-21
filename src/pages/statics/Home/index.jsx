@@ -4,6 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Countdown from '../../../components/Countdown/Countdown';
 import Chatvollant from '../../../assets/chatvollant.png';
 import Chatpascontent from '../../../assets/chatpascontent.png';
+import Fondpoticha from '../../../assets/fondpoticha.png'
 
 
 const HomePage = () => {
@@ -22,17 +23,8 @@ const HomePage = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src='/src/assets/fondpoticha.png'
+              src={Fondpoticha}
               alt="Première image"
-            />
-            <h3 className='cta-carousel'>Envie d'écrire ?</h3>
-            <button className='button-carousel'>Notre appel à textes</button>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 carousel-img"
-              src='/src/assets/fondpoticha.png'
-              alt="Deuxième image"
             />
             <h3 className='cta-carousel' id='lire-cta'>Envie de lire ?</h3>
             <button className='button-carousel' id='lire-btn'>Nos abonnements</button>
@@ -40,11 +32,20 @@ const HomePage = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src='/src/assets/fondpoticha.png'
+              src={Fondpoticha}
               alt="Deuxième image"
+              />
+            <h3 className='cta-carousel' id='lire-cta'>Envie d'écrire ?</h3>
+            <button className='button-carousel' id='lire-btn'>Notre appel à textes</button>
+          </Carousel.Item>
+          <Carousel.Item>
+           <img
+              className="d-block w-100 carousel-img"
+              src={Fondpoticha}
+              alt="Troisième image"
             />
-            <h3 className='cta-carousel'id='rien-cta'>Envie de rien ?</h3>
-            <button className='button-carousel' id='rien-btn'>Appelle THP</button>
+            <h3 className='cta-carousel'id='rien-cta'>Envie de nous rencontrer ?</h3>
+            <button className='button-carousel' id='rien-btn'>Notre actualité</button>
           </Carousel.Item>
         </Carousel>
       </div>
