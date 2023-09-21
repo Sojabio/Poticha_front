@@ -16,11 +16,12 @@
     }
 
     .questions-container{
+        overflow: auto;
         position: relative;
         top:10%;
         width: 75%;
         margin-left: 73px;
-        height: 73%;
+        height: 60%;
         background-color: var(--pink);
         border: 4px solid var(--peach);
         border-radius: 20px;

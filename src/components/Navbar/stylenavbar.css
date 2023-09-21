@@ -37,6 +37,7 @@
     margin-bottom: 40px;
     justify-content: space-between;
     border: 2px solid #000;
+    transition: background-color 0.3s;
   }
 
   nav button:hover {
@@ -71,18 +72,62 @@
   }
 
   .svg-inline--fa {
-    margin-left: 5px;
+    margin-left: 13px;
+    transform: translateX(-8px);
   }
 
 
 
 @media (max-height: 800px) {
+  .nav-side {
+    height: 100%;
+  }
+
   .nav-link {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
   .svg-inline--fa {
-    margin-left: 10px;
+    margin-left: 13px;
+    transform: translateX(-0px);
+  }
+}
+
+
+@media (max-height: 580px) {
+  .nav-side {
+    height: 100%;
+  }
+
+  .nav-link {
+    margin-bottom: 8px;
+  }
+
+  .svg-inline--fa {
+    margin-left: 13px;
+    transform: translateX(-0px);
   }
 }
   
+
+@media (max-height: 1000px) {
+  .nav-side {
+    height: 100%;
+  }
+
+  .nav-link {
+    margin-bottom: 20px;
+  }
+
+  .svg-inline--fa {
+    margin-left: 13px;
+    transform: translateX(-0px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .svg-inline--fa {
+    margin-left: 13px;
+    transform: translateX(-0px);
+  }
+}

@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import NavBar from './components/Navbar'
+import Socialbar from './components/Socialbar';
 
 
 //static pages
@@ -58,6 +59,7 @@ function App() {
     <div className='globale'>
       <Router>
         <NavBar />
+        <Socialbar />
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/abonnement" element={<Abo/>} />

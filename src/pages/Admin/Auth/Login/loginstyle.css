@@ -38,8 +38,8 @@
 
 @media (max-width:1024px) {
   .login-form {
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
     margin: 5%;
     border: 3px solid var(--purple);
     margin-left: 75px;
