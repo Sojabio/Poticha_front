@@ -14,9 +14,10 @@ const HomePage = () => {
         <div className='countdown'>
           <Countdown />
         </div>
-        <img src={Chatpascontent} alt="Chat noir pas content" className='hungry-cat'/>
         <h1 className="main-title">Le Pôticha</h1>
         <h3 className='main-subtitle'> Le théatre dans votre boite aux lettres</h3>
+        <img src={Chatpascontent} alt="Chat noir pas content" className='hungry-cat'/>
+        <img src={Chatvollant} alt="Chat vollant avec des livres ballons" className='flying-cat'/>
       </div>
       <div className="carousel">
         <Carousel className='carousel-part'>

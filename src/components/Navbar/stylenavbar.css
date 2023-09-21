@@ -1,6 +1,6 @@
 .nav-side {
-    height: 100vh; 
-    position: absolute; 
+    height: 100vh;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 997;
@@ -12,14 +12,14 @@
   .navbar-expand-lg .navbar-nav {
     flex-direction: column;
     justify-content: space-around;
-    
+
   }
 
   .nav-retracted {
-    width: 70px; 
+    width: 70px;
     overflow: hidden;
     transition: width 0.3s;
-    
+
   }
 
   .nav-expanded {
@@ -29,21 +29,16 @@
   }
 
   nav button {
-    background-color: var(--purple);
+    background-color: transparent;
     border-radius: 50px;
     color: #000;
     width: 40px;
     height: 40px;
     border: none;
     margin-bottom: 40px;
+    margin-left: -8px;
     justify-content: space-between;
-    border: 2px solid #000;
     transition: background-color 0.3s;
-  }
-
-  nav button:hover {
-    color: #f1f1f1;
-    background-color: #000;
   }
 
   .nav-link {
@@ -53,6 +48,12 @@
     width: 40px;
     margin-bottom: 40px;
     justify-content: space-between;
+  }
+
+  .nav-link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
 
   .nav-link:hover {
@@ -72,10 +73,6 @@
     transition: width 0.5s ;
   }
 
-  .svg-inline--fa {
-    margin-left: 13px;
-    transform: translateX(-8px);
-  }
 
 
 
@@ -105,11 +102,12 @@
   }
 
   .svg-inline--fa {
-    margin-left: 13px;
     transform: translateX(-0px);
   }
+
+ 
 }
-  
+
 
 @media (max-height: 1000px) {
   .nav-side {
@@ -120,15 +118,21 @@
     margin-bottom: 20px;
   }
 
-  .svg-inline--fa {
-    margin-left: 13px;
-    transform: translateX(-0px);
-  }
+ 
 }
 
 @media (max-width: 1024px) {
   .svg-inline--fa {
     margin-left: 13px;
     transform: translateX(-0px);
+  }
+  
+}
+
+
+
+@media (min-width:1024px) {
+  .nav-link svg {
+    margin-left: 6px;
   }
 }
