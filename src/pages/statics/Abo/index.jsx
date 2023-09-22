@@ -2,7 +2,10 @@ import './abostyle.css';
 
 const Abo = () => {
   return (
-    <div >
+    <div className="center-abo" >
+      <div>
+
+      </div>
       <iframe
       id="haWidget"
       allowtransparency="true"

@@ -14,8 +14,8 @@ const Call = () => {
           <img src={chatvollant} alt="chat qui vole avec des ballons livres" className='flyingcat'></img>
         </div>
         <div className="right-column">
-          <img src={chatpascontent} alt="chat noir pas content" className='hungrycat'></img>
-          <div className='content'>
+          <img src={chatpascontent} alt="chat noir pas content" className='angrycat'></img>
+          <div className='call-text'>
             <p>Nous voulons des oeuvres puissantes et non-oppressives qui vont construire le monde libéré en déployant d’autres imaginaires et des langues inventives. </p>
             <p>Notre catalogue contiendra un minimum de 50% de personne s’identifiant comme femmes et 25% de personnes non-binaires cis. Il y aura également un minimum de 35% de personnes racisées. </p>
             <p>Notre maison se veut également le moins précarisante possible pour celleux qui créent la valeur des livres. Aussi nous reversons 50% de la valeur ajoutées des ventes aux auteurices.</p>
