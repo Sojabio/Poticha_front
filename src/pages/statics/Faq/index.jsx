@@ -11,8 +11,8 @@ const Faq = () => {
     },
     {
       isOpen: false,
-      question: "C'est quoi Les petits formats du Pôticha ?",
-      answer: "Les petits formats c'est  un texte de théâtre brefs et inédit tous les mois dans ta boite aux lettres grâce à l'abonnement de 6 ou 9 mois."
+      question: "Les petits formats du Pôticha, c'est quoi ?",
+      answer: "Les petits formats c'est  un texte de théâtre bref et inédit tous les mois dans ta boîte aux lettres grâce à l'abonnement de 6 ou 9 mois."
     },
     {
       isOpen: false,
