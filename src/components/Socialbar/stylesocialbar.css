@@ -36,18 +36,10 @@
 
   .social-icon:hover {
     background-color: var(--peach);
-    color:#000;
-    border: 1px solid #000;
   }
 
-  .social-icon a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 20px;
-  }
-
-  .social-icon a:hover {
-    color: #ff8800;
+  .social-icon:hover img{
+    filter: invert(100%);
   }
 
 

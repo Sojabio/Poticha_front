@@ -42,6 +42,10 @@
     font-weight: 700;
 }
 
+.dashboard-container {
+    min-height: 80vh;
+    overflow-y: auto;
+  }
 
 
 @media (max-width:768px) {
