@@ -3,6 +3,55 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
 
+.countdown-abo {
+    margin-bottom: 5000px;
+}
+
+.countdown-abo .countdown-closed {
+  margin-top: 60vh;
+}
+
+.countdown-abo .countdown-closed p {
+  font-size: 2rem;
+}
+
+.helloasso{
+  margin-top: 500px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .helloasso{
+    margin-top: 150px !important;
+  }
+
+  .countdown-abo .countdown-closed button {
+    margin-top: 40vh !important;
+    color: black;
+
+  }
+
+
+
+
+}
+
+
+@media (max-width: 768px) {
+
+
+  .countdown-abo .countdown-closed p {
+    font-size: 1rem;
+    margin-left: 3.5rem;
+  }
+
+  .countdown-abo .countdown-closed button {
+    margin-top: 40vh !important;
+    margin-left: 5rem !important;
+    font-size: 1rem !important;
+    color: black;
+  }
+
+}

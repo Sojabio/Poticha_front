@@ -6,23 +6,23 @@ const Faq = () => {
   const initialQuestions = [
     {
       isOpen: false,
-      question: "Le Pôticha c'est quoi?",
-      answer: "Réponse à la première question."
+      question: "Le Pôticha c'est quoi ?",
+      answer: "Le Pôticha est une maison d'édition pour le théâtre. Elle se donne pour mission de publier les œuvres puissantes et non-oppressives qui vont construire le monde libéré que nous espérons. Notre maison se veut également la moins précarisante possible pour celleux qui créent la valeur des livres."
     },
     {
       isOpen: false,
-      question: "Le Pôticha c'est qui?",
-      answer: "Réponse à la deuxième question."
+      question: "C'est quoi Les petits formats du Pôticha ?",
+      answer: "Les petits formats c'est  un texte de théâtre brefs et inédit tous les mois dans ta boite aux lettres grâce à l'abonnement de 6 ou 9 mois."
     },
     {
       isOpen: false,
-      question: "Le Pôticha c'est comment?",
-      answer: "Réponse à la troisième question."
+      question: "Et les grands formats, c'est quand ? ",
+      answer: "L'objectif pour les grands formats, c'est un texte publié tous les ans sous format A5 et disponible sur le site et dans les libraires partenaires."
     },
     {
       isOpen: false,
-      question: "Le Pôticha c'est pour qui?",
-      answer: "Réponse à la quatrième question."
+      question: "L'adhésion, pourquoi ?",
+      answer: "Le Pôticha est une association ayant pour de faire découvrir des textes d'auteurices vivantes et participer à leur juste rémunération. Adhérer au Pôticha c'est nous montrer votre soutien et nous permettre de travailler dans les meilleures temporalité et avec les meilleurs matériaux et partenaires. "
     }
   ];
 
