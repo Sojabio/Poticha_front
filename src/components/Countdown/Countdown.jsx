@@ -51,7 +51,8 @@ const Countdown = () => {
             <CountdownTimer targetDate={targetDate} />
           </div>
           <div className='content-timer'>
-            <p className="countdown-subtitle">avant la fermeture des abonnements</p>
+            <p className="countdown-subtitle mobile">avant la fermeture des abonnements</p>
+            <p className="countdown-subtitle desktop">Temps avant la fermeture des abonnements :</p>
           </div>
           <div className='cta-buttons'>
             {/* <button href="#" className="cta-button">
