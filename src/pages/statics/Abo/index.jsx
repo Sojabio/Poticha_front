@@ -1,10 +1,11 @@
-import React from 'react'
 import './abostyle.css';
 
-const Abo
- = () => {
+const Abo = () => {
   return (
-    <div >
+    <div className="center-abo" >
+      <div>
+
+      </div>
       <iframe
       id="haWidget"
       allowtransparency="true"
@@ -12,7 +13,6 @@ const Abo
       src="https://www.helloasso.com/associations/le-poticha/adhesions/le-poticha-adherents-2023-2024/widget"
       style={{ width: '80%', height: '83vh', border: 'none',overflow:'auto' ,  marginLeft:'74px', marginTop:'30px' }}>
       </iframe>
-
     </div>
   )
 }
