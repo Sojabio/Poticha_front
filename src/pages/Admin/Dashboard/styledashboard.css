@@ -2,6 +2,7 @@
     background-color: var(--pink) !important;
     border-radius: 20px 20px 0 0;
     border: none;
+    
 }
 
 .nav {
@@ -32,11 +33,13 @@
 
 .nav-item .nav-link {
     background-color: var(--pink) !important;
+    color: #800080;
+    font-weight: 600;
 }
 
 .nav-item .nav-link:hover {
-    color: #800080;
-    font-weight: 600;
+    color: #f1f1f1;
+    font-weight: 700;
 }
 
 

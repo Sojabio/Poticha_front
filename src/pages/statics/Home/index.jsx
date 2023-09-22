@@ -36,7 +36,7 @@ const HomePage = () => {
               src={Fondpoticha}
               alt="Deuxième image"
               />
-            <h3 className='cta-carousel' id='lire-cta'>Envie d'écrire ?</h3>
+            <h3 className='cta-carousel' id='ecrire-cta'>Envie d'écrire ?</h3>
             <button className='button-carousel' id='lire-btn'>Notre appel à textes</button>
           </Carousel.Item>
           <Carousel.Item>
