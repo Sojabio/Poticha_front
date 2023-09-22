@@ -106,6 +106,10 @@
   box-shadow: 0 5px 8px var(--pink);
 }
 
+#rien-cta {
+  margin-left: -7%;
+}
+
 
 
 
@@ -178,11 +182,13 @@
   #rien-cta {
     color: #000;
     left: 40%;
+    margin-left: -15%;  
   }
   
   #rien-btn {
     left : 35%;
   }
+
 }
 
 @media screen and (min-width: 769px) and (max-width: 1280px) {
@@ -224,8 +230,13 @@
   .cta-carousel{
     margin-top: 2rem;
     margin-right: 50%;
-    margin-left: -12%;
+    margin-left: -8%;
     width: 100%;
     flex-wrap: nowrap;
   }
+
+  #rien-cta {
+    margin-left: -18%;
+  }
+  
 }
