@@ -36,7 +36,9 @@ const Author = () => {
       <div className="article-container">
         <div className="article-image">
           {author.image ? (
-            <img src={author.image} alt={author.first_name} />
+            <StyledContainer>
+              <img src={author.image} alt={author.first_name} />
+              </StyledContainer>
           ) : (
             <StyledContainer>
               <img src={chatvollant} alt={`Chat qui vole grace a des ballons livres`} />
