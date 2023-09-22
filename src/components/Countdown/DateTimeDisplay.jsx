@@ -3,7 +3,7 @@ import './style.css'
 
 const DateTimeDisplay = ({ value, type, isDanger }) => {
   return (
-    <div className={isDanger ? 'countdown danger' : 'countdown'}>
+    <div className={isDanger ? 'countdown-data danger' : 'countdown-data'}>
       {value} {type}
     </div>
   );

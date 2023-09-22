@@ -7,6 +7,9 @@
   text-align: center;
 }
 
+.mobile {
+  display: none;
+}
 .countdown-closed {
   position: fixed;
   margin-bottom: -2%;
@@ -14,6 +17,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.countdown-data {
+  padding: 20px;
 }
 
 .countdown-closed #closed-cta-button {
@@ -103,9 +110,11 @@
 
 
 @media (max-width : 768px) {
-  .countdown {
+  .countdown-data {
     text-align: center;
-    padding: 20px;
+    padding:  0 20px;
+    margin-right: 60%;
+    width: 220px;
   }
 
   .countdown-closed p {
@@ -116,7 +125,7 @@
     margin-top: 1%;
     margin-right:15%;
   }
-}
+
   
   .countdown-open,
   .countdown-closed {
@@ -150,15 +159,19 @@
     width: 100%;
     background-color: transparent;
   }
-  .countdown-subtitle {
-    width: 30%;
+  .mobile{
+    display: block;
+    width: 200px;
     font-size: 18px;
-    margin-top: 3.5rem;
     font-size: 14px;
     font-weight: 500;
     position: fixed;
-    right: 34%;
-    top: 6%;
+    margin-right: 8%;
+    top: 10%;
+  }
+
+  .desktop {
+    display: none;
   }
 
   
@@ -177,10 +190,11 @@
   }
 }
 
+
 @media (max-width : 880px) {
-  .countdown {
+  .countdown-data {
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
   }
   
   .countdown-open,
@@ -214,12 +228,17 @@
     width: 100%;
     background-color: transparent;
   }
-  .countdown-subtitle {
+  .mobile {
+    display: block;
     font-size: 18px;
-    margin-top: 3.5rem;
+    margin-top: 2rem;
     margin-left:60px;
     font-size: 18px;
     font-weight: 500;
+  }
+
+  .desktop {
+    display: none;
   }
   
   .cta-button {
