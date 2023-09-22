@@ -61,10 +61,10 @@ const Countdown = () => {
         </>
       ) : (
         <>
-          <div className="countdown-closed">Les abonnements sont fermés :(</div>
-          <button href="#" className="cta-button">
-            En savoir plus
-          </button>
+          <div className="countdown-closed">
+            <p>Les abonnements sont fermés :( </p>
+            <button href="#" className="cta-button" id='closed-cta-button'> En savoir plus </button>
+          </div>
         </>
       )}
     </div>
