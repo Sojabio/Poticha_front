@@ -76,6 +76,10 @@
       width: 95%;
       padding: 10px;
     }
+
+    .post-card:last-child {
+      margin-bottom: 20%;
+    }
     .post-card img {
       width: 40%;
       height: auto;

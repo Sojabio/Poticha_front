@@ -68,10 +68,12 @@
 
   .book-description {
     margin-bottom: 10px;
-    max-height: 6em;
-    line-height: 1.5em;
+    max-height: 1.5em; /* Hauteur d'une seule ligne de texte */
+    line-height: 1.5em; /* Hauteur de ligne correspondante */
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    max-width: 200px;
   }
 
   .book-isbn {
