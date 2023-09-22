@@ -53,3 +53,48 @@
   box-shadow: 0 5px 8px var(--pink);
 }
 
+@media (max-width:768px) {
+  .logout-container {
+    width: 80%;
+    height: 80%;
+    margin:auto;
+    min-width: 60%;
+    border: 3px solid var(--purple);
+    margin:5%
+  }
+
+  .logout {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width:1024px) {
+  .logout-container {
+    width: 70%;
+    height: 70%;
+    margin: 5%;
+    border: 3px solid var(--purple);
+    margin-left: 75px;
+  }
+
+  .logout {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logout-container p {
+    font-size: 1rem;
+    display: flex;
+    font-weight: bold;
+  }
+
+  .home-button {
+    padding: 10px 10px;
+  }
+
+}

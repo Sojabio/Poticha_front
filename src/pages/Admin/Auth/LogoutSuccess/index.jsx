@@ -1,6 +1,8 @@
 import './style.css'
 import { Link } from 'react-router-dom';
 
+
+
 const LogoutSuccess = () => {
 
   return (
