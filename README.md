@@ -35,4 +35,3 @@ Pour consulter le trello du projet ➡️ https://trello.com/b/k35A5GLl/le-p%C3%
 ## BDD 😺
 Pour consulter la modélisation de la BDD ➡️ https://glorious-saltopus-43e.notion.site/BDD-poticha-7f0cd8cf4f9b4b0d9175484efde400d9
 ![image](https://github.com/Sojabio/Poticha_front/assets/61155891/0211b0bf-4689-4722-b761-3ba9da2c3412)
-
