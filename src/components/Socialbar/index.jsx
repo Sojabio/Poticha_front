@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import facebookIcon from '../../assets/icons/facebook.svg'; // Importez l'image Facebook
+import facebookIcon from '../../assets/icons/facebook.svg'; 
 import instagramIcon from '../../assets/icons/instagram.svg';
 import youtubeIcon from '../../assets/icons/youtube.svg';
 import './stylesocialbar.css';

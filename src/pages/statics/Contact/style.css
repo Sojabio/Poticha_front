@@ -1,8 +1,14 @@
-.center {
+.center-contact {
   height: 100%;
   width: 100%;
   background-color: var(--peach);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .center-contact {
+    text-align: center;
+  }
 }

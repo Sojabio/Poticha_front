@@ -32,12 +32,14 @@
 }
 .update-author-container {
     width: 50%;
-    height: 80%;
-    max-width: 65%;
+    height: 90%;
     padding: 20px;
     background-color:#f1f1f1;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
   }
 
   .update-button {
@@ -103,6 +105,7 @@
         max-width: 95%;
         margin-top: -50px;
         margin-left: 15%;
+        padding-bottom: 40px;
     }
     .update-author-form {
       padding: 10px;

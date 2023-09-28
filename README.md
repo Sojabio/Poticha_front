@@ -27,7 +27,7 @@ Pour consulter le site en ligne ➡️ https://poticha-front.vercel.app/
 ## Installer le front en local 😺
 1. `npm i`
 1. `npm start`
-1. ➡️ [http://localhost:3000](http://localhost:3000)
+1. ➡️ [http://localhost:5173](http://localhost:5173)
 
 ## Trello 😺
 Pour consulter le trello du projet ➡️ https://trello.com/b/k35A5GLl/le-p%C3%B4ticha

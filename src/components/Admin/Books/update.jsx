@@ -169,7 +169,6 @@ function UpdateBook() {
               value={description}
               onChange={handleDescriptionChange}
               className="form-control"
-              rown="5"
             />
           </div>
           <div className="form-group">

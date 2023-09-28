@@ -27,14 +27,14 @@ const DestroyAuthor = ({authorId}) => {
       });
 
       if (response.ok) {
-        console.log('Author deleted successfully');
+        console.log('Auteurice supprimé-e avec succès');
         navigate(`/auteurices`)
 
       } else {
-        console.log('Failed to delete author');
+        console.log("Erreur lors de la suppression de l'auteurice");
       }
     } catch (error) {
-      console.error('An error occurred while deleting author:', error);
+      console.error("Erreur lors de la suppression de l'auteurice", error);
     }
   }
 

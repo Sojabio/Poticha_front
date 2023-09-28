@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer';
 import { API_URL } from '../../stores/apiUrl';
 
@@ -53,11 +53,6 @@ const Countdown = () => {
           <div className='content-timer'>
             <p className="countdown-subtitle mobile">avant la fermeture des abonnements</p>
             <p className="countdown-subtitle desktop">Les abonnements se ferment dans :</p>
-          </div>
-          <div className='cta-buttons'>
-            {/* <button href="#" className="cta-button">
-              S'abonner
-            </button> */}
           </div>
         </>
       ) : (
