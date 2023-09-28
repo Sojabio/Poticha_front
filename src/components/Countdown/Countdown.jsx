@@ -54,11 +54,6 @@ const Countdown = () => {
             <p className="countdown-subtitle mobile">avant la fermeture des abonnements</p>
             <p className="countdown-subtitle desktop">Les abonnements se ferment dans :</p>
           </div>
-          <div className='cta-buttons'>
-            {/* <button href="#" className="cta-button">
-              S'abonner
-            </button> */}
-          </div>
         </>
       ) : (
         <>
