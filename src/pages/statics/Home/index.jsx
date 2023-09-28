@@ -15,7 +15,7 @@ const HomePage = () => {
           <Countdown />
         </div>
         <h1 className="main-title">Le Pôticha</h1>
-        <h3 className='main-subtitle'> Le théatre dans votre boîte aux lettres</h3>
+        <h3 className='main-subtitle'> Le théâtre dans votre boîte aux lettres</h3>
         <img src={Chatpascontent} alt="Chat noir pas content" className='hungry-cat'/>
         <img src={Chatvollant} alt="Chat vollant avec des livres ballons" className='flying-cat'/>
       </div>
