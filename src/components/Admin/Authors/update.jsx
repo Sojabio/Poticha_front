@@ -135,7 +135,7 @@ function UpdateAuthor() {
             />
           </div>
           <div className='form-group'>
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">Email : </label>
             <input
               type="text"
               placeholder={originalData.email}
@@ -156,7 +156,7 @@ function UpdateAuthor() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="image">image:</label>
+            <label htmlFor="image">image :</label>
             <input
               type="file"
               name="image"

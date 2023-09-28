@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+.danger {
+  color: red;
+}
+
 .mobile {
   display: none;
 }
@@ -87,9 +91,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  white-space: nowrap; 
-  overflow: hidden; 
-  margin-top: 1rem; 
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 1rem;
 }
 
 .content-timer {
@@ -126,7 +130,7 @@
     margin-right:15%;
   }
 
-  
+
   .countdown-open,
   .countdown-closed {
     margin-bottom: 20px;
@@ -138,7 +142,7 @@
     font-weight: 500;
     padding: 0;
 
-  } 
+  }
 
   .show-counter {
     position: fixed;
@@ -174,7 +178,7 @@
     display: none;
   }
 
-  
+
   .cta-button {
     background-color: var(--pink);
     color: #fff;
@@ -196,7 +200,7 @@
     text-align: center;
     padding: 0 20px;
   }
-  
+
   .countdown-open,
   .countdown-closed {
     margin-bottom: 20px;
@@ -208,7 +212,7 @@
     font-weight: 500;
     padding: 0;
 
-  } 
+  }
 
   .show-counter {
     position: fixed;
@@ -240,7 +244,7 @@
   .desktop {
     display: none;
   }
-  
+
   .cta-button {
     background-color: var(--pink);
     color: #fff;

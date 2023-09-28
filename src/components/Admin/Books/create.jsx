@@ -179,7 +179,7 @@ function CreateBook() {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor="author">Auteur :</label>
+          <label htmlFor="author">Auteurice :</label>
           <select
             id="author"
             value={selectedAuthor}

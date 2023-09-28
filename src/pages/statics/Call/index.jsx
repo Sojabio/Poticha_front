@@ -1,4 +1,3 @@
-import React from 'react'
 import './style.css'
 import chatpascontent from '../../../assets/chatpascontent.png'
 import chatvollant from '../../../assets/chatvollant.png'

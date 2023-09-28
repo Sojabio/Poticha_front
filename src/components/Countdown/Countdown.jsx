@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer';
 import { API_URL } from '../../stores/apiUrl';
 

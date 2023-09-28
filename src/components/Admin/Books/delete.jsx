@@ -28,13 +28,13 @@ const DestroyBook = ({bookId}) => {
       });
 
       if (response.ok) {
-        console.log('Book deleted successfully');
+        console.log('Ouvrage supprimé avec succès');
         navigate(`/ouvrages`)
       } else {
-        console.log('Failed to delete book');
+        console.log("Erreur lors de la suppression de l'ouvrage");
       }
     } catch (error) {
-      console.error('An error occurred while deleting book:', error);
+      console.error("Erreur lors de la suppression de l'ouvrage", error);
     }
   }
 

@@ -3,11 +3,11 @@
     text-align: center;
     background-color: #ff6962;
     color: #000;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px; 
+    margin-top: 10px;
     cursor: pointer;
     box-shadow: 0 4px 5px rgb(239,50,70);
     border: none;
@@ -30,30 +30,32 @@
 }
 .update-book-container {
     width: 50%;
-    height: 80%;
-    max-width: 65%;
+    height: 90%;
     padding: 20px;
     background-color:#f1f1f1;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
   }
-  
+
   .update-button {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
   }
-  
+
   .update-book-form .form-group {
     margin-bottom: 20px;
   }
-  
+
   .update-book-form label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
   }
-  
+
   .update-book-form .form-control {
     width: 100%;
     padding: 10px;
@@ -61,21 +63,21 @@
     border-radius: 4px;
     font-size: 16px;
   }
-  
+
   .update-book-form select.form-control {
     height: 40px;
   }
-  
+
   .update-book-form button {
     display: block;
     text-align: center;
     background-color: var(--pink);
     color: #000;
-    padding: 10px 50px; 
+    padding: 10px 50px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 20px; 
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
@@ -92,7 +94,7 @@
     box-shadow: 0 5px 8px var(--pink);
   }
 
-  
+
   @media (max-width: 768px) {
 
     .update-book-container {
@@ -101,14 +103,14 @@
         margin-top: -50px;
         margin-left: 15%;
         max-width: 95%;
+        padding-bottom: 40px;
     }
     .update-book-form {
       padding: 20px;
       margin-top: -60px;
     }
-  
+
     .update-button {
       font-size: 20px;
     }
   }
-  
