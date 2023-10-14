@@ -55,7 +55,7 @@ const NavBar = () => {
           {isExpanded ? <FontAwesomeIcon icon={faArrowLeft} /> : <FontAwesomeIcon icon={faArrowRight} />}
           </button>
           {renderNavLinks()}
-          {userInfo.isLoggedIn && <LogoutButton />} 
+          {userInfo.isLoggedIn && <LogoutButton />}
         </Nav>
       </Container>
     </Navbar>

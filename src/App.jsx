@@ -1,9 +1,10 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { fetchAuthors, fetchBooks } from "./stores/apiFetch";
 
 import { useAtom } from 'jotai';
 import { userAtom } from './stores/userAtom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -39,6 +40,8 @@ import UpdateBook from './components/Admin/Books/update';
 import ProtectedRoute from './components/Routes';
 
 function App() {
+  const [books, setBooks] = useState([]);
+  const [authors, setAuthors] = useState([]);
   const [user, setUser] = useAtom(userAtom);
 
   useEffect(() => {
@@ -54,6 +57,17 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const authorsData = await fetchAuthors();
+      const booksData = await fetchBooks();
+      setAuthors(authorsData);
+      setBooks(booksData);
+    };
+
+    fetchData();
+  }, []);
+
 
   return (
     <div className='globale'>
@@ -67,11 +81,11 @@ function App() {
           <Route path="/faq" element={<Faq/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/mailsuccess" element={<MailSuccess/>} />
-          <Route path="/ouvrages" element={<Books/>} />
+          <Route path="/ouvrages" element={<Books books={books}/>} />
           <Route path="/ouvrages/:id" element={<Book/>} />
           <Route path="/actus" element={<Infos/>} />
           <Route path="/actus/:id" element={<Info/>} />
-          <Route path="/auteurices" element={<Authors/>} />
+          <Route path="/auteurices"  element={<Authors authors={authors} />} />
           <Route path="/auteurices/:id" element={<Author/>}/>
           <Route path="/auteurices/:id/contact" element={<ContactAuthor/>}/>
           <Route path="/login" element={<Login/>} />
