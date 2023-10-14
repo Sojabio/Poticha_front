@@ -13,8 +13,7 @@ import './style.css';
 
 const Author = () => {
   const { id } = useParams();
-  const [author, setAuthor] = useState('');
-  const [books, setBooks] = useState([]);
+  const [author, setAuthor] = useState({});
   const [userInfo] = useAtom(userAtom);
 
   useEffect(() => {
@@ -24,12 +23,16 @@ const Author = () => {
         setAuthor(data);
       });
 
-    fetch(`${API_URL}/books?author_id=${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setBooks(data);
-      });
   }, []);
+
+  if (!author || !author.books) {
+    console.error("Author or author.books is undefined:", author);
+    return (
+    <div className="author">
+      Chargement...
+    </div>
+    );
+  }
 
   return (
     <div className="author">
@@ -54,13 +57,13 @@ const Author = () => {
           </div>
           <p className="article-description">{author.biography}</p>
           <div className="article-books">
-            {books.length === 1 ? (
+            {author.books.length === 1 ? (
               <p> Publication chez Le Pôticha : </p>
             ) : (
               <p> Publications chez Le Pôticha : </p>
             )}
             <ul>
-              {books.map((book) => (
+              {author.books.map((book) => (
                 <li key={book.id} className="book-title">
                   <Link to={`/ouvrages/${book.id}`} className="article-book-link">
                     {book.title}
@@ -69,8 +72,6 @@ const Author = () => {
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
           </div>
           {userInfo.isLoggedIn ? (
             <>

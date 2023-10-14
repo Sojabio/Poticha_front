@@ -1,75 +1,10 @@
 import { Link } from "react-router-dom";
-import { API_URL } from "../../../stores/apiUrl";
-import { useState, useEffect } from "react";
 import dateWithoutTime from "./dateWithoutTime";
 import './stylebooks.css';
 import chatvollant from '../../../assets/chatvollant.png'
 import StyledContainer from '../../../components/ImageContainer/index.jsx';
 
-
-const Books = () => {
-  const [books, setBooks] = useState([]);
-  const [booksAuthors, setBooksAuthors] = useState({});
-
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(API_URL + "/books", {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (response.ok) {
-        const jsonData = await response.json();
-        setBooks(jsonData.reverse());
-
-        const authorFetchPromises = jsonData.map(async (book) => {
-          try {
-            const authorsResponse = await fetch(
-              `${API_URL}/authors/${book.author_id}`,
-              {
-                method: "get",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }
-            );
-            if (authorsResponse.ok) {
-              const authorData = await authorsResponse.json();
-              return { bookId: book.id, author: authorData };
-            } else {
-              return { bookId: book.id, author: null };
-            }
-          } catch (error) {
-            console.error("Erreur de requête des auteurices : ", error);
-            return { bookId: book.id, author: null };
-          }
-        });
-
-        const authorsData = await Promise.all(authorFetchPromises);
-
-        const updatedBooksAuthors = {};
-        authorsData.forEach((authorInfo) => {
-          if (authorInfo) {
-            updatedBooksAuthors[authorInfo.bookId] = authorInfo.author;
-          }
-        });
-
-        setBooksAuthors(updatedBooksAuthors);
-      } else {
-        throw new Error("Erreur lors de la requête");
-      }
-    } catch (error) {
-      console.error("Erreur de requête : ", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-
+const Books = ({books}) => {
   return (
     <div className="books">
       <div className="library">
@@ -82,11 +17,11 @@ const Books = () => {
               <div className="book-details">
                 <h4 className="book-title">{book.title}</h4>
                 <div className="book-author">
-                  {booksAuthors[book.id] ? (
+                  {book.author ? (
                     <>
                       <p className="author-name">
-                        {booksAuthors[book.id].first_name}{" "}
-                        {booksAuthors[book.id].last_name}
+                        {book.author.first_name}{" "}
+                        {book.author.last_name}
                       </p>
                     </>
                   ) : (
