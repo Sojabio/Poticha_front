@@ -4,7 +4,7 @@ import { API_URL } from "../../stores/apiUrl";
 
 import './style.css'
 
-export const ContactForm = ({authormail, authorFirstName, authorLastName}) => {
+export const ContactForm = ({authorid, authorFirstName, authorLastName}) => {
   let defaultFields = {
     name: "",
     email: "",
@@ -82,11 +82,11 @@ export const ContactForm = ({authormail, authorFirstName, authorLastName}) => {
     if (validForSubmission()) {
         const formData = {
         ...message,
-        recipientEmail: authormail,
+        recipientId: authorid,
       };
       newMessage(formData);
       setMessage(defaultFields);
-      console.log(authormail)
+      console.log(authorid)
     }
   };
 
