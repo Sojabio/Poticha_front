@@ -3,7 +3,7 @@ import './style.css'
 const IndexTest = () => {
   return (
     <div className="center-contact">
-      <ContactForm authormail={"lepoticha@yopmail.com"}/>
+      <ContactForm authormail={"solene.jabaud@gmail.com"}/>
     </div>
   )
 }
