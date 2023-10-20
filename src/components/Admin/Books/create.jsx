@@ -76,6 +76,8 @@ function CreateBook() {
         setErrors([]);
         console.log("L'ouvrage a été ajouté avec succès");
         navigate("/ouvrages")
+        window.location.reload();
+
       } else {
         console.error("Erreur lors de l'ajout de l'ouvrage");
         const responseData = await response.json();

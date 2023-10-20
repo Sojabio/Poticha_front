@@ -123,6 +123,7 @@ function UpdateBook() {
       if (response.ok) {
         console.log("L'ouvrage a été  modifié avec succès");
         navigate(`/ouvrages`)
+        window.location.reload();
 
       } else {
         console.error("Erreur lors de la modification de l'ouvrage");

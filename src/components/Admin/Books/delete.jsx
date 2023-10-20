@@ -30,6 +30,7 @@ const DestroyBook = ({bookId}) => {
       if (response.ok) {
         console.log('Ouvrage supprimé avec succès');
         navigate(`/ouvrages`)
+        window.location.reload();
       } else {
         console.log("Erreur lors de la suppression de l'ouvrage");
       }

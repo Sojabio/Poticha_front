@@ -23,7 +23,7 @@ const Book = () => {
       });
   }, []);
 
-  if (!book || !book.author) {
+  if (!book) {
     console.error("book or book.author is undefined:", book);
     return (
     <div className="book">
@@ -44,7 +44,12 @@ const Book = () => {
           <p className="article-isbn">ISBN : {book.ISBN}</p>
           <p className="article-isbn">saison : {book.season}</p>
           <p className="article-isbn">date de parution : {dateWithoutTime(book.issue_date)}</p>
+          {book.author ? (
           <Link to={`/auteurices/${book.author.id}`} className="article-author-link">{book.author.first_name} {book.author.last_name}</Link>
+          ) : (
+          <p className="author-not-available">Auteurice non disponible</p>
+          )}
+
           {userInfo.isLoggedIn && (
             <div className="article-update-link">
               <Link to={`/updatebook/${book.id}`} className="update-author-link">Modifier cet ouvrage</Link>
