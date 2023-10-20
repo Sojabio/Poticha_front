@@ -39,6 +39,9 @@ import UpdateAuthor from './components/Admin/Authors/update';
 import UpdateBook from './components/Admin/Books/update';
 import ProtectedRoute from './components/Routes';
 
+//components
+import CreateAuthor from './components/Admin/Authors/create';
+
 function App() {
   const [books, setBooks] = useState([]);
   const [authors, setAuthors] = useState([]);

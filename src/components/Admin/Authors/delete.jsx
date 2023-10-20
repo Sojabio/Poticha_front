@@ -28,7 +28,8 @@ const DestroyAuthor = ({authorId}) => {
 
       if (response.ok) {
         console.log('Auteurice supprimé-e avec succès');
-        navigate(`/auteurices`)
+        navigate("/auteurices")
+        window.location.reload(); 
 
       } else {
         console.log("Erreur lors de la suppression de l'auteurice");

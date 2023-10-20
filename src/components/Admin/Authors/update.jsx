@@ -19,7 +19,7 @@ function UpdateAuthor() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(API_URL + "/authors/" + authorId, {
+        const response = await fetch(API_URL + "/authors/" + authorId + "/showadmin", {
           method: 'get',
           headers: {
             'Content-Type': 'application/json'
@@ -84,7 +84,9 @@ function UpdateAuthor() {
 
       if (response.ok) {
         console.log("L'auteurice a été  modifié-e avec succès");
-        navigate(`/auteurices/${authorId}`)
+        // navigate(`/auteurices/${authorId}`)
+        navigate('/auteurices')
+        window.location.reload();
 
       } else {
         console.error("Erreur lors de la modification de l'auteurice");

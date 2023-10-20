@@ -58,6 +58,7 @@ function CreateAuthor() {
       if (response.ok) {
         console.log("L'auteurice a été ajouté-e avec succès");
         navigate("/auteurices")
+        window.location.reload(); 
       } else {
         console.error("Erreur lors de l'ajout de l'auteurice");
         const responseData = await response.json();
